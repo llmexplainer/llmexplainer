@@ -1,0 +1,28 @@
+{
+  "name": "llmexplainer",
+  "version": "1.0.0",
+  "description": "<!-- **llmexplainer/llmexplainer** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/llmexplainer/llmexplainer.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/llmexplainer/llmexplainer/issues"
+  },
+  "homepage": "https://github.com/llmexplainer/llmexplainer#readme",
+  "dependencies": {
+    "express": "^5.1.0"
+  },
+
+  "scripts": {
+  "start": "node server.js"
+}
+}
