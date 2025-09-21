@@ -2,3 +2,11 @@ html {
   font-size: 16px; /* 1rem = 16px */
 }
 
+body { 
+    font-family: sans-serif; 
+    text-align: center; 
+    margin: 7rem; };
+
+    button 
+    { margin: 3rem; 
+    padding: 10px 20px; };

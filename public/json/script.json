@@ -1,0 +1,36 @@
+{
+"script":[
+
+{
+
+ "index":"1",
+ "title":"Welcome",
+ "body":"Loaded from JSON",
+ "buttons": ["Next", "Exit"],
+ "buttonTriggers": ["go-next","exit"]  
+},
+
+{
+"trigger":"go-next",
+"body": "going next",
+"buttons": ["Back"],
+"buttonTriggers": ["1"],
+"__comment": "so triggers can also point to an indexed step"
+
+},
+
+{
+
+    "trigger": "exit",
+    "body": "Cancelled",
+    "buttons": ["Restart"],
+    "buttonTriggers":["1"]
+}
+
+
+
+]
+
+
+
+}
