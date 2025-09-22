@@ -37,26 +37,52 @@ function populateUI(UIData) {
 
 //display current step
 function renderStep(step) {
+    let currentContainer;
 
-  const mainContainer = document.getElementById("main-container");
-  mainContainer.innerHTML = ""; //clearing anything from before
-  mainContainer.className =""
+ if(step.index ==="1"){
+    currentContainer = document.getElementById("intro-container");
+    currentContainer.style.display = "flex";
+    document.getElementById("main-container").style.display = "none";
+
+ } else {
+    currentContainer = document.getElementById("main-container");
+    document.getElementById("intro-container").innerHTML = "";
+     document.getElementById("intro-container").style.display= "none";
+    currentContainer.style.visibility = "visible";
+    currentContainer.style.display ="flex";
+    const topDiv = document.createElement("div");
+    topDiv.classList.add("top");
+
+for (let i = 0; i < 3; i++) {
+  const dot = document.createElement("span");
+  dot.classList.add("dot");
+  topDiv.appendChild(dot);
+}
+currentContainer.appendChild(topDiv);
+    
+ }
+
+
+  currentContainer.innerHTML = ""; //NOTE that this clears DOM elements
+  currentContainer.className =""
 
   
   if(step.additionalClasses) {
     step.additionalClasses.forEach((c) =>{
-        mainContainer.classList.add(c); 
+        currentContainer.classList.add(c); 
     })
 
     
   }
+
+    //maybe separate intro from everything else that's in a browser -- ANOTHER if, so intro-container vs main-container 
 
       //Maybe for styled text in the middle of paragraph can use regex instead of having full html tags in json
 
   if (step.title) {
     const h2 = document.createElement("h2");
     h2.innerHTML = step.title;
-    mainContainer.appendChild(h2);
+    currentContainer.appendChild(h2);
   }
 
   if (step.body) {
@@ -65,7 +91,7 @@ function renderStep(step) {
     para.textContent = p.text;
     if (p.id) para.id = p.id;
     if (p.class) para.classList.add(p.class);
-    mainContainer.appendChild(para);
+    currentContainer.appendChild(para);
     })
    
   }
@@ -78,7 +104,7 @@ function renderStep(step) {
       if (b.class) btn.classList.add(b.class);
 
       btn.addEventListener("click", () => handleTrigger(b.trigger));
-      mainContainer.appendChild(btn);
+      currentContainer.appendChild(btn);
     });
   }
 }

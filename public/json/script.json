@@ -23,12 +23,13 @@
 
  "index":"1",
  "additionalClasses": ["main-container-crazy", "test"],
- "body": [{"text":"AI chatbots have become increasingly common. But how much do you know about how these technologies actually work? Could you train your own?"}, {"text":"another one"} ],
+ "body": [{"text":"AI chatbots have become increasingly common. But how much do you know about how these technologies actually work? Could you train your own?"} ],
  "buttons": [{"text": "START", "id":"start-btn", "trigger":"start"}]
 },
 
 {
 "trigger":"start",
+"index": "2",
 "body": [{"text":"going next"}],
 "buttons":[{"text":"back", "trigger":"1"}],
 "__comment": "so triggers can also point to an indexed step"
