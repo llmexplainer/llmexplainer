@@ -7,9 +7,10 @@
     "_comment": "to separate static elements from script",
 
     "navbar":{
+    "title": "LLM Explainer",   
     "resources":"Resources",
     "about": "About",
-    "contact":"Contact"
+    "language":"EN"
 
     }
 

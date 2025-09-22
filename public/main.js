@@ -15,6 +15,13 @@ async function loadScript() {
   UIData = jsonData.ui;
 
   console.log(UIData); //all good
+
+
+    //def needs to be something more dynamic for ui...
+  document.querySelector("#navbar-title").textContent = UIData.navbar.title;
+  document.querySelector("#navbar-resources").textContent = UIData.navbar.resources;
+  document.querySelector("#navbar-about").textContent = UIData.navbar.about;
+  document.querySelector("#navbar-lang").textContent = UIData.navbar.language;
   
 
   //sort into index and trigger steps
