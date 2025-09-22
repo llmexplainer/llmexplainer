@@ -12,6 +12,7 @@ body {
 
 nav {
   display: flex;
+  font-size: 1.75rem;
   justify-content: space-between;
   padding: 0rem 1rem 3rem 0rem;
   align-items: center;
@@ -44,11 +45,14 @@ button {
   padding: 10px 20px;
 }
 
+/* #start-btn {
+} */
 
-#main-container{
-    padding: 7rem 0rem;
-    display:flex;
-    flex-direction: column;
-    align-items: center;
+#main-container {
+  padding: 7rem 4rem;
+  font-size: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 

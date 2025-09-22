@@ -37,8 +37,21 @@ function populateUI(UIData) {
 
 //display current step
 function renderStep(step) {
+
   const mainContainer = document.getElementById("main-container");
   mainContainer.innerHTML = ""; //clearing anything from before
+  mainContainer.className =""
+
+  
+  if(step.additionalClasses) {
+    step.additionalClasses.forEach((c) =>{
+        mainContainer.classList.add(c); 
+    })
+
+    
+  }
+
+      //Maybe for styled text in the middle of paragraph can use regex instead of having full html tags in json
 
   if (step.title) {
     const h2 = document.createElement("h2");
@@ -47,23 +60,27 @@ function renderStep(step) {
   }
 
   if (step.body) {
-    const p = document.createElement("p");
-    p.innerHTML = step.body;
-    mainContainer.appendChild(p);
+    step.body.forEach((p) => {
+    const para = document.createElement("p");
+    para.textContent = p.text;
+    if (p.id) para.id = p.id;
+    if (p.class) para.classList.add(p.class);
+    mainContainer.appendChild(para);
+    })
+   
   }
 
- if (step.buttons) {
-  step.buttons.forEach(b => {
-    const btn = document.createElement("button");
-    btn.textContent = b.text;
-    if (b.id) btn.id = b.id;
-    if (b.class) btn.classList.add(b.class);
+  if (step.buttons) {
+    step.buttons.forEach((b) => {
+      const btn = document.createElement("button");
+      btn.textContent = b.text;
+      if (b.id) btn.id = b.id;
+      if (b.class) btn.classList.add(b.class);
 
-    btn.addEventListener("click", () => handleTrigger(b.trigger));
-    mainContainer.appendChild(btn);
-  });
-}
-
+      btn.addEventListener("click", () => handleTrigger(b.trigger));
+      mainContainer.appendChild(btn);
+    });
+  }
 }
 
 function handleTrigger(trigger) {
@@ -77,4 +94,3 @@ function handleTrigger(trigger) {
 }
 
 window.addEventListener("DOMContentLoaded", loadScript);
-
