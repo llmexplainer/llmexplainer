@@ -5,14 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>LLM Explainer</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
 
- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/p5@1.9.0/lib/p5.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.9.0/lib/p5.min.js"></script>
   </head>
   <body>
-   <div class="container" id="main-container">
-    
-   </div>
+    <!-- MOVE ALL TEXT CONTENT TO JSON -->
+    <nav>
+        <div id="navbar-title">LLM Explainer</div>
+      <ul id="navbar-list">
+        <li class="navbar-link" id="navbar-resources"><a href="#">Resources</a></li>
+        <li class="navbar-link" id="navbar-about"><a href="#">About</a></li>
+        <li class="navbar-link" id="navbar-lang"><a href="#">EN</a></li>
+      </ul>
+    </nav>
+    <div class="container" id="main-container"></div>
 
     <script src="main.js"></script>
     <script src="sketch.js"></script>

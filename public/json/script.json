@@ -1,4 +1,21 @@
+
+
 {
+
+"ui":{
+
+    "_comment": "to separate static elements from script",
+
+    "navbar":{
+    "resources":"Resources",
+    "about": "About",
+    "contact":"Contact"
+
+    }
+
+
+},
+
 "script":[
 
 {

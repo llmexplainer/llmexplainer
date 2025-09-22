@@ -2,11 +2,44 @@ html {
   font-size: 16px; /* 1rem = 16px */
 }
 
-body { 
-    font-family: sans-serif; 
-    text-align: center; 
-    margin: 7rem; };
+body {
+  background-color: #fadede;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  text-align: center;
+  margin: 1.5rem;
+}
 
-    button 
-    { margin: 3rem; 
-    padding: 10px 20px; };
+nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 0rem 1rem 3rem 0rem;
+  align-items: center;
+}
+
+#navbar-list {
+  display: flex;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+#navbar-title {
+  font-weight: bold;
+  padding: 0 1rem;
+  margin-right: auto;
+}
+
+.navbar-link {
+  padding: 1rem;
+  gap: 1rem;
+}
+
+a {
+  text-decoration: none;
+  color: #333;
+}
+button {
+  margin: 3rem;
+  padding: 10px 20px;
+}
