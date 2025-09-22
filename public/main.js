@@ -57,8 +57,10 @@ for (let i = 0; i < 3; i++) {
   const dot = document.createElement("span");
   dot.classList.add("dot");
   topDiv.appendChild(dot);
+  console.log("here");
 }
 currentContainer.appendChild(topDiv);
+console.log("and here");
     
  }
 
