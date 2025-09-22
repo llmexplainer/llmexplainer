@@ -22,17 +22,14 @@
 {
 
  "index":"1",
- "title":"Welcome",
- "body":"Loaded from JSON",
- "buttons": ["Next", "Exit"],
- "buttonTriggers": ["go-next","exit"]  
+ "body":"AI chatbots have become increasingly common. But how much do you know about how these technologies actually work? Could you train your own? ",
+ "buttons": [{"text": "START", "id":"start-btn", "trigger":"start"}]
 },
 
 {
-"trigger":"go-next",
+"trigger":"start",
 "body": "going next",
-"buttons": ["Back"],
-"buttonTriggers": ["1"],
+"buttons":[{"text":"back", "trigger":"1"}],
 "__comment": "so triggers can also point to an indexed step"
 
 },
