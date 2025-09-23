@@ -40,27 +40,31 @@ function renderStep(step) {
     let currentContainer;
 
  if(step.index ==="1"){
+    document.querySelector(".navbar").style.display = "flex";
     currentContainer = document.getElementById("intro-container");
     currentContainer.style.display = "flex";
     document.getElementById("main-container").style.display = "none";
 
  } else {
+    document.querySelector(".navbar").style.display = "none";
     currentContainer = document.getElementById("main-container");
     document.getElementById("intro-container").innerHTML = "";
      document.getElementById("intro-container").style.display= "none";
     currentContainer.style.visibility = "visible";
     currentContainer.style.display ="flex";
+    console.log(currentContainer.style);
     const topDiv = document.createElement("div");
     topDiv.classList.add("top");
 
-for (let i = 0; i < 3; i++) {
-  const dot = document.createElement("span");
-  dot.classList.add("dot");
-  topDiv.appendChild(dot);
-  console.log("here");
-}
-currentContainer.appendChild(topDiv);
-console.log("and here");
+// //need browser styling classes
+// for (let i = 0; i < 3; i++) {
+//   const dot = document.createElement("span");
+//   dot.classList.add("dot");
+//   topDiv.appendChild(dot);
+//   console.log("here");
+// }
+// currentContainer.appendChild(topDiv);
+// console.log("and here");
     
  }
 
