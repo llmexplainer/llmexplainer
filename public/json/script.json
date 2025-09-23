@@ -1,77 +1,163 @@
-
-
 {
-
-"ui":{
-
+  "ui": {
     "_comment": "to separate static elements from script",
 
-    "navbar":{
-    "title": "LLM Explainer",   
-    "resources":"Resources",
-    "about": "About",
-    "language":"EN"
+    "navbar": {
+      "title": "LLM Explainer",
+      "resources": "Resources",
+      "about": "About",
+      "language": "EN"
+    }
+  },
+
+  "script": [
+    {
+      "index": "1",
+      "additionalClasses": ["main-container-crazy", "test"],
+      "body": [
+        {
+          "text": "AI chatbots have become increasingly common. But how much do you know about how these technologies actually work? Could you train your own?"
+        }
+      ],
+      "buttons": [{ "text": "START", "id": "start-btn", "trigger": "start" }]
+    },
+
+    {
+      "trigger": "start",
+      "index": "2",
+      "order": ["body", "buttons", "interactiveBody"],
+      "body": [
+        {
+          "text": "Complex chatbots, or \"conversational agents\" such as ChatGPT, Claude, or DeepSeek, are often powered by large language models (LLMs).  "
+        },
+        {
+          "text": "A \"language model\" is a piece of software that is trained to predict language sequences and generate text responses."
+        }
+      ],
+      "interactiveBody": [
+        {
+          "text": " Autocomplete, for example, is a language model that predicts what word or phrase is most statistically likely to be used _____________"
+        }
+      ],
+      "buttons": [
+        { "text": "next", "trigger": "choice-next" },
+        { "text": "now", "trigger": "choice-now" },
+        { "text": "correctly", "trigger": "choice-correctly" },
+        { "text": "!", "trigger": "choice-!" }
+      ],
+      "__comment": "so triggers can also point to an indexed step"
+    },
+
+    {
+      "trigger": "choice-next",
+      "order": ["body", "interactiveBody", "buttons"],
+      "body": [
+        {
+          "text": "Complex chatbots, or \"conversational agents\" such as ChatGPT, Claude, or DeepSeek, are often powered by large language models (LLMs).  "
+        },
+        {
+          "text": "A \"language model\" is a piece of software that is trained to predict language sequences and generate text responses."
+        }
+      ],
+      "interactiveBody": [
+        {
+          "text": " Autocomplete, for example, is a language model that predicts what word or phrase is most statistically likely to be used next."
+        }
+      ],
+      "buttons": [
+        {
+          "text": "STAGE 1: Train a language model",
+          "class": "stage-btn",
+          "trigger": "stage-1-loader"
+        }
+      ]
+    },
+
+    {
+      "trigger": "choice-now",
+      "order": ["body", "interactiveBody", "buttons"],
+      "body": [
+        {
+          "text": "Complex chatbots, or \"conversational agents\" such as ChatGPT, Claude, or DeepSeek, are often powered by large language models (LLMs).  "
+        },
+        {
+          "text": "A \"language model\" is a piece of software that is trained to predict language sequences and generate text responses."
+        }
+      ],
+      "interactiveBody": [
+        {
+          "text": " Autocomplete, for example, is a language model that predicts what word or phrase is most statistically likely to be used now."
+        }
+      ],
+      "buttons": [
+        {
+          "text": "STAGE 1: Train a language model",
+          "class": "stage-btn",
+          "trigger": "stage-1-loader"
+        }
+      ]
+    },
+    {
+      "trigger": "choice-correctly",
+      "order": ["body", "interactiveBody", "buttons"],
+      "body": [
+        {
+          "text": "Complex chatbots, or \"conversational agents\" such as ChatGPT, Claude, or DeepSeek, are often powered by large language models (LLMs).  "
+        },
+        {
+          "text": "A \"language model\" is a piece of software that is trained to predict language sequences and generate text responses."
+        }
+      ],
+      "interactiveBody": [
+        {
+          "text": " Autocomplete, for example, is a language model that predicts what word or phrase is most statistically likely to be used correctly."
+        }
+      ],
+      "buttons": [
+        {
+          "text": "STAGE 1: Train a language model",
+          "class": "stage-btn",
+          "trigger": "stage-1-loader"
+        }
+      ]
+    },
+
+    {
+      "trigger": "choice-!",
+      "order": ["body", "interactiveBody", "buttons"],
+      "body": [
+        {
+          "text": "Complex chatbots, or \"conversational agents\" such as ChatGPT, Claude, or DeepSeek, are often powered by large language models (LLMs).  "
+        },
+        {
+          "text": "A \"language model\" is a piece of software that is trained to predict language sequences and generate text responses."
+        }
+      ],
+      "interactiveBody": [
+        {
+          "text": " Autocomplete, for example, is a language model that predicts what word or phrase is most statistically likely to be used!"
+        }
+      ],
+      "buttons": [
+        {
+          "text": "STAGE 1: Train a language model",
+          "class": "stage-btn",
+          "trigger": "stage-1-loader"
+        }
+      ]
+    },
+
+    {
+        "trigger": "stage-1-loader",
+        "body": [{"text":"Stage 1: Training", "class":"transition-title"}],
+        "timer":{"duration":2000, "trigger":"stage-1"}
+
+    },
+    {
+        "trigger":"stage-1",
+        "body":[{"text":"This will be stage 1"}]
 
     }
-
-
-},
-
-"script":[
-
-{
-
- "index":"1",
- "additionalClasses": ["main-container-crazy", "test"],
- "body": [{"text":"AI chatbots have become increasingly common. But how much do you know about how these technologies actually work? Could you train your own?"} ],
- "buttons": [{"text": "START", "id":"start-btn", "trigger":"start"}]
-},
-
-{
-"trigger":"start",
-"index": "2",
-"body": [{"text":"Complex chatbots, or \"conversational agents\" such as ChatGPT, Claude, or DeepSeek, are often powered by large language models (LLMs).  "}, {"text":"A \"language model\" is a piece of software that is trained to predict language sequences and generate text responses."}],
-"interactiveBody": [{"text":" Autocomplete, for example, is a language model that predicts what word or phrase is most statistically likely to be used _____________"}],
-"buttons":[{"text":"next", "trigger":"choice-next"},{"text":"now", "trigger":"choice-now"}, {"text":"correctly", "trigger":"choice-correctly"},{"text":"!", "trigger":"choice-!"}],
-"__comment": "so triggers can also point to an indexed step"
-
-},
-
-{
-
-    "trigger": "choice-next",
-    "body": [{"text":"Complex chatbots, or \"conversational agents\" such as ChatGPT, Claude, or DeepSeek, are often powered by large language models (LLMs).  "}, {"text":"A \"language model\" is a piece of software that is trained to predict language sequences and generate text responses."}],
-   "interactiveBody": [{"text":" Autocomplete, for example, is a language model that predicts what word or phrase is most statistically likely to be used next."}],
-    "buttons": [{"text": "STAGE 1: Train a language model", "class":"stage-btn", "trigger":"stage-1"}]
- 
-},
-
-
-{
-
-    "trigger": "choice-now",
-    "body": [{"text":"Complex chatbots, or \"conversational agents\" such as ChatGPT, Claude, or DeepSeek, are often powered by large language models (LLMs).  "}, {"text":"A \"language model\" is a piece of software that is trained to predict language sequences and generate text responses."}],
-   "interactiveBody": [{"text":" Autocomplete, for example, is a language model that predicts what word or phrase is most statistically likely to be used now."}],
-    "buttons": [{"text": "STAGE 1: Train a language model", "class":"stage-btn", "trigger":"stage-1"}]
- 
-},
-{
-"trigger": "choice-correctly",
-    "body": [{"text":"Complex chatbots, or \"conversational agents\" such as ChatGPT, Claude, or DeepSeek, are often powered by large language models (LLMs).  "}, {"text":"A \"language model\" is a piece of software that is trained to predict language sequences and generate text responses."}],
-   "interactiveBody": [{"text":" Autocomplete, for example, is a language model that predicts what word or phrase is most statistically likely to be used correctly."}],
-    "buttons": [{"text": "STAGE 1: Train a language model", "class":"stage-btn", "trigger":"stage-1"}]
-
-},
-
-{
-
-    "trigger": "choice-!",
-    "body": [{"text":"Complex chatbots, or \"conversational agents\" such as ChatGPT, Claude, or DeepSeek, are often powered by large language models (LLMs).  "}, {"text":"A \"language model\" is a piece of software that is trained to predict language sequences and generate text responses."}],
-   "interactiveBody": [{"text":" Autocomplete, for example, is a language model that predicts what word or phrase is most statistically likely to be used!"}],
-    "buttons": [{"text": "STAGE 1: Train a language model", "class":"stage-btn", "trigger":"stage-1"}]
- 
+  ]
 }
 
-]
-
-}

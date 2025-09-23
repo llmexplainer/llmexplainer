@@ -42,10 +42,11 @@ function populateUI(UIData) {
 }
 
 //display current step
-function renderStep(step) {
-  let currentContainer;
 
-  if (step.index === "1") {
+function renderStep(step){
+
+    //start step, intro container 
+    if (step.index === "1") {
     document.querySelector(".navbar").style.display = "flex";
     currentContainer = document.getElementById("intro-container");
     currentContainer.style.display = "flex";
@@ -57,33 +58,17 @@ function renderStep(step) {
     document.getElementById("intro-container").style.display = "none";
     currentContainer.style.visibility = "visible";
     currentContainer.style.display = "flex";
-    console.log(currentContainer.style);
-    // const topDiv = document.createElement("div");
-    // topDiv.classList.add("top");
-
-    // //need browser styling classes
-    // for (let i = 0; i < 3; i++) {
-    //   const dot = document.createElement("span");
-    //   dot.classList.add("dot");
-    //   topDiv.appendChild(dot);
-    //   console.log("here");
-    // }
-    // currentContainer.appendChild(topDiv);
-    // console.log("and here");
   }
 
-  currentContainer.innerHTML = ""; //NOTE that this clears DOM elements
+  currentContainer.innerHTML = "";
   currentContainer.className = "";
 
-  if (step.additionalClasses) {
+  //this is for browser styling later..i think
+  if(step.additionalClasses){
     step.additionalClasses.forEach((c) => {
-      currentContainer.classList.add(c);
+        currentContainer.classList.add(c);
     });
   }
-
-  //maybe separate intro from everything else that's in a browser -- ANOTHER if, so intro-container vs main-container
-
-  //Maybe for styled text in the middle of paragraph can use regex instead of having full html tags in json
 
   if (step.title) {
     const h2 = document.createElement("h2");
@@ -91,19 +76,35 @@ function renderStep(step) {
     currentContainer.appendChild(h2);
   }
 
-  if (step.body) {
-    step.body.forEach((p) => {
+
+  //all content renderers are in a look up table. This solves the issue of being limited in layout. 
+  //In JSON, we can define an order and it puts things together accordingly. As opposed to having to do text > buttons all the time, for eg 
+   if (step.timer) {
+  setTimeout(() => {
+    handleTrigger(step.timer.trigger);
+    console.log("hi");
+  }, step.timer.duration);
+}
+
+  const contentRenderers = {
+
+
+    body: () => {
+
+        if (step.body){
+            step.body.forEach((p) => {
       const para = document.createElement("p");
       para.textContent = p.text;
       if (p.id) para.id = p.id;
       if (p.class) para.classList.add(p.class);
       currentContainer.appendChild(para);
     });
-  }
+        }
+    },
 
- 
+ interactiveBody: () => {
 
-  if(step.interactiveBody){
+    if(step.interactiveBody){
     const interactiveBodyDiv = document.createElement("div");
     interactiveBodyDiv.classList.add("interactive-body");
     step.interactiveBody.forEach((i) => {
@@ -117,6 +118,10 @@ function renderStep(step) {
     currentContainer.appendChild(interactiveBodyDiv);
   }
 
+
+ },
+ 
+ buttons: () => {
    if (step.buttons) {
     const buttonDiv = document.createElement("div");
     buttonDiv.classList.add("button-group");
@@ -132,10 +137,26 @@ function renderStep(step) {
     });
     currentContainer.appendChild(buttonDiv);
   }
+
+    
+ }
+
+  };
+
+  const renderOrder = step.order || ["body", "interactiveBody", "buttons"];
+
+  renderOrder.forEach(contentType => {
+    if (contentRenderers[contentType]){
+        contentRenderers[contentType]();
+    }
+  });
+ 
+
 }
 
 function handleTrigger(trigger) {
   const step = scriptByTrigger[trigger] || scriptByIndex[parseInt(trigger)];
+  console.log(step);
 
   if (step) {
     renderStep(step);
