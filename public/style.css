@@ -47,6 +47,11 @@ button {
   padding: 10px 20px;
 }
 
+.stage-btn{
+    background-color: rgb(207, 245, 233);
+    border-radius: 0.3rem;
+}
+
 /* #start-btn {
 } */
 

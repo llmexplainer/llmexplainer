@@ -101,21 +101,7 @@ function renderStep(step) {
     });
   }
 
-  if (step.buttons) {
-    const buttonDiv = document.createElement("div");
-    buttonDiv.classList.add("button-group");
-    step.buttons.forEach((b) => {
-      const btn = document.createElement("button");
-      btn.textContent = b.text;
-      if (b.id) btn.id = b.id;
-      if (b.class) btn.classList.add(b.class);
-
-      btn.addEventListener("click", () => handleTrigger(b.trigger));
-      buttonDiv.appendChild(btn);
-      
-    });
-    currentContainer.appendChild(buttonDiv);
-  }
+ 
 
   if(step.interactiveBody){
     const interactiveBodyDiv = document.createElement("div");
@@ -129,6 +115,22 @@ function renderStep(step) {
       
     });
     currentContainer.appendChild(interactiveBodyDiv);
+  }
+
+   if (step.buttons) {
+    const buttonDiv = document.createElement("div");
+    buttonDiv.classList.add("button-group");
+    step.buttons.forEach((b) => {
+      const btn = document.createElement("button");
+      btn.textContent = b.text;
+      if (b.id) btn.id = b.id;
+      if (b.class) btn.classList.add(b.class);
+
+      btn.addEventListener("click", () => handleTrigger(b.trigger));
+      buttonDiv.appendChild(btn);
+      
+    });
+    currentContainer.appendChild(buttonDiv);
   }
 }
 
