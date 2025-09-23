@@ -13,7 +13,7 @@ body {
 .navbar{
 
  display: flex;
-  font-size: 1.75rem;
+  font-size: 1.25rem;
   justify-content: space-between;
   padding: 0rem 1rem 3rem 0rem;
   align-items: center;
@@ -51,11 +51,16 @@ button {
 } */
 
 #intro-container {
-  padding: 7rem 4rem;
+  padding: 3rem 5rem;
+  margin: 2rem auto;
   font-size: 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 60rem;                 
+  max-width: 90%;             
+  min-height: 35rem;
+   transition: opacity 2s ease-in-out;   
 }
 #main-container {
  
@@ -66,14 +71,30 @@ button {
   visibility: hidden;
   padding: 3rem 5rem;
   margin: 2rem auto;
-  font-size: 2rem;
+  font-size: 1.5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 60rem;                 
   max-width: 90%;             
   min-height: 35rem;  
-  justify-content: center;          
-  
+  justify-content: center; 
+    /* transition: opacity 2s ease-in-out;         
+   */ 
+   /* LATER: for transitions to work it needs to be a "hidden / visible class" not display */
 }
 
+.button-group{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.interactive-body{
+    background-color: rgb(218, 218, 218);
+    border-radius: 0.3rem;
+    padding: 1rem 1rem;
+    font-size: 1rem;
+
+}
