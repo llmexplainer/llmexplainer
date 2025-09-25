@@ -94,9 +94,23 @@ function renderStep(step){
         if (step.body){
             step.body.forEach((p) => {
       const para = document.createElement("p");
-      para.textContent = p.text;
       if (p.id) para.id = p.id;
-      if (p.class) para.classList.add(p.class);
+      if (p.class) {
+  p.class.forEach(cls => para.classList.add(cls));
+}
+//        if (p.delay) {
+//         console.log("yup");
+//   para.style.animationDelay = `${p.delay}s`;
+// }
+
+      if (p.animation === 'typewriter'){
+        const delay = p.delay || 0;
+        setTimeout(()=> {
+          typewriterEffect(para, p.text, p.speed || 50);
+        },delay);
+      } else {
+        para.textContent = p.text;
+      }
       currentContainer.appendChild(para);
     });
         }
@@ -107,11 +121,23 @@ function renderStep(step){
     if(step.interactiveBody){
     const interactiveBodyDiv = document.createElement("div");
     interactiveBodyDiv.classList.add("interactive-body");
+
     step.interactiveBody.forEach((i) => {
       const para = document.createElement("p");
-      para.textContent = i.text;
       if (i.id) para.id = i.id;
-      if (i.class) para.classList.add(i.class);
+      if (i.class) {
+        i.class.forEach(cls => i.classList.add(cls));
+      }
+     
+      if ( i. animation === 'typewriter'){
+        const delay = i.delay || 0;
+        setTimeout(() =>{
+        typewriterEffect(para, i.text, i.speed || 50);
+      }, delay);
+        } else {
+          para.textContent = i.text;
+        }
+
       interactiveBodyDiv.appendChild(para);
       
     });
@@ -125,17 +151,28 @@ function renderStep(step){
    if (step.buttons) {
     const buttonDiv = document.createElement("div");
     buttonDiv.classList.add("button-group");
+
     step.buttons.forEach((b) => {
       const btn = document.createElement("button");
       btn.textContent = b.text;
       if (b.id) btn.id = b.id;
-      if (b.class) btn.classList.add(b.class);
+      if (b.class){
+        b.class.forEach(cls => btn.classList.add(cls));
+      }
+
+      if (b.delay) {
+        console.log("yeahyeah");
+  btn.style.setProperty('--extra-delay', b.delay);
+}
 
       btn.addEventListener("click", () => handleTrigger(b.trigger));
       buttonDiv.appendChild(btn);
       
     });
-    currentContainer.appendChild(buttonDiv);
+  
+      currentContainer.appendChild(buttonDiv);
+   
+    
   }
 
     
@@ -163,6 +200,23 @@ function handleTrigger(trigger) {
   } else {
     console.log("what to do here");
   }
+}
+
+function typewriterEffect(element,text,speed = 50, callback){
+  element.textContent= '';
+  element.classList.add('typewriter');
+
+  let i = 0;
+  const timer = setInterval(() => {
+
+    element.textContent += text[i];
+    i++;
+    if (i>= text.length){
+      clearInterval(timer);
+      element.classList.add('done');
+      if (callback) callback (); 
+    }
+  }, speed); 
 }
 
 window.addEventListener("DOMContentLoaded", loadScript);

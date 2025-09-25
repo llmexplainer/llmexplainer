@@ -25,25 +25,28 @@
     {
       "trigger": "start",
       "index": "2",
-      "order": ["body", "buttons", "interactiveBody"],
+      "order": ["body", "interactiveBody", "buttons"],
       "body": [
         {
-          "text": "Complex chatbots, or \"conversational agents\" such as ChatGPT, Claude, or DeepSeek, are often powered by large language models (LLMs).  "
+          "text": "Complex chatbots, or \"conversational agents\" such as ChatGPT, Claude, or DeepSeek, are often powered by large language models (LLMs).", "class":["fade-in"]
         },
         {
-          "text": "A \"language model\" is a piece of software that is trained to predict language sequences and generate text responses."
+          "text": "A \"language model\" is a piece of software that is trained to predict language sequences and generate text responses.", "class":["fade-in-delayed"]
         }
       ],
       "interactiveBody": [
         {
-          "text": " Autocomplete, for example, is a language model that predicts what word or phrase is most statistically likely to be used _____________"
+          "text": " Autocomplete, for example, is a language model that predicts what word or phrase is most statistically likely to be used _____________",
+          "animation": "typewriter",
+          "speed":50,
+          "delay": 900
         }
       ],
       "buttons": [
-        { "text": "next", "trigger": "choice-next" },
-        { "text": "now", "trigger": "choice-now" },
-        { "text": "correctly", "trigger": "choice-correctly" },
-        { "text": "!", "trigger": "choice-!" }
+        { "text": "next", "trigger": "choice-next","class": ["button-stagger-1"], "delay": "7.0s"},
+        { "text": "now", "trigger": "choice-now", "class": ["button-stagger-2"], "delay": "7.0s" },
+        { "text": "correctly", "trigger": "choice-correctly", "class": ["button-stagger-3"], "delay": "7.0s" },
+        { "text": "!", "trigger": "choice-!", "class": ["button-stagger-4"],"delay": "7.0s" }
       ],
       "__comment": "so triggers can also point to an indexed step"
     },
@@ -61,13 +64,18 @@
       ],
       "interactiveBody": [
         {
-          "text": " Autocomplete, for example, is a language model that predicts what word or phrase is most statistically likely to be used next."
+          "text": " Autocomplete, for example, is a language model that predicts what word or phrase is most statistically likely to be used"
+        }, 
+        {
+          "text": "next.",
+          "animation": "typewriter",
+          "speed":50
         }
       ],
       "buttons": [
         {
           "text": "STAGE 1: Train a language model",
-          "class": "stage-btn",
+          "class": ["stage-btn","fade-in-delayed"],
           "trigger": "stage-1-loader"
         }
       ]
@@ -85,14 +93,19 @@
         }
       ],
       "interactiveBody": [
+          {
+          "text": " Autocomplete, for example, is a language model that predicts what word or phrase is most statistically likely to be used"
+        }, 
         {
-          "text": " Autocomplete, for example, is a language model that predicts what word or phrase is most statistically likely to be used now."
+          "text": "now.",
+          "animation": "typewriter",
+          "speed":50
         }
       ],
       "buttons": [
         {
           "text": "STAGE 1: Train a language model",
-          "class": "stage-btn",
+            "class":["stage-btn", "fade-in-delayed"] ,
           "trigger": "stage-1-loader"
         }
       ]
@@ -109,14 +122,19 @@
         }
       ],
       "interactiveBody": [
+          {
+          "text": " Autocomplete, for example, is a language model that predicts what word or phrase is most statistically likely to be used"
+        }, 
         {
-          "text": " Autocomplete, for example, is a language model that predicts what word or phrase is most statistically likely to be used correctly."
+          "text": "correctly",
+          "animation": "typewriter",
+          "speed":50
         }
       ],
       "buttons": [
         {
           "text": "STAGE 1: Train a language model",
-          "class": "stage-btn",
+          "class":["stage-btn", "fade-in-delayed"],
           "trigger": "stage-1-loader"
         }
       ]
@@ -134,14 +152,19 @@
         }
       ],
       "interactiveBody": [
+          {
+          "text": " Autocomplete, for example, is a language model that predicts what word or phrase is most statistically likely to be used"
+        }, 
         {
-          "text": " Autocomplete, for example, is a language model that predicts what word or phrase is most statistically likely to be used!"
+          "text": "!",
+          "animation": "typewriter",
+          "speed":50
         }
       ],
       "buttons": [
         {
           "text": "STAGE 1: Train a language model",
-          "class": "stage-btn",
+          "class":["stage-btn", "fade-in-delayed"],
           "trigger": "stage-1-loader"
         }
       ]
@@ -149,7 +172,7 @@
 
     {
         "trigger": "stage-1-loader",
-        "body": [{"text":"Stage 1: Training", "class":"transition-title"}],
+        "body": [{"text":"Stage 1: Training", "class":["transition-title"]}],
         "timer":{"duration":2000, "trigger":"stage-1"}
 
     },
