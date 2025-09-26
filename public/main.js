@@ -52,6 +52,7 @@ function renderStep(step){
     currentContainer.style.display = "flex";
     document.getElementById("main-container").style.display = "none";
   } else {
+    document.querySelector(".browser-window").style.visibility="visible";
     document.querySelector(".navbar").style.display = "none";
     currentContainer = document.getElementById("main-container");
     document.getElementById("intro-container").innerHTML = "";
