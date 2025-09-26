@@ -69,7 +69,8 @@
         {
           "text": "next.",
           "animation": "typewriter",
-          "speed":50
+          "speed":80,
+          "delay": 400
         }
       ],
       "buttons": [
@@ -99,7 +100,8 @@
         {
           "text": "now.",
           "animation": "typewriter",
-          "speed":50
+          "speed":80,
+          "delay": 400
         }
       ],
       "buttons": [
@@ -128,7 +130,8 @@
         {
           "text": "correctly",
           "animation": "typewriter",
-          "speed":50
+          "speed":80,
+          "delay": 400
         }
       ],
       "buttons": [
@@ -158,7 +161,8 @@
         {
           "text": "!",
           "animation": "typewriter",
-          "speed":50
+          "speed":80,
+          "delay": 400
         }
       ],
       "buttons": [

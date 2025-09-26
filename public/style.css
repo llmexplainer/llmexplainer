@@ -97,11 +97,21 @@ button {
 }
 
 .interactive-body{
-    background-color: rgb(218, 218, 218);
+    background-color: rgba(237, 236, 236, 0.702);
     border-radius: 0.3rem;
     padding: 1rem 1rem;
     font-size: 1rem;
 
+}
+
+.delayed-text {
+  opacity: 0;             
+  
+}
+
+.delayed-text.has-content {
+  transition: opacity 0.8s ease;
+  opacity: 1;           
 }
 
 

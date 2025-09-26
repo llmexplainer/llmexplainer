@@ -120,7 +120,9 @@ function renderStep(step){
 
     if(step.interactiveBody){
     const interactiveBodyDiv = document.createElement("div");
-    interactiveBodyDiv.classList.add("interactive-body");
+    interactiveBodyDiv.classList.add("interactive-body", "delayed-text");
+
+    let hasImmediateContent = false;
 
     step.interactiveBody.forEach((i) => {
       const para = document.createElement("p");
@@ -132,15 +134,21 @@ function renderStep(step){
       if ( i. animation === 'typewriter'){
         const delay = i.delay || 0;
         setTimeout(() =>{
+          interactiveBodyDiv.classList.add('has-content');
         typewriterEffect(para, i.text, i.speed || 50);
       }, delay);
         } else {
           para.textContent = i.text;
+          hasImmediateContent = true;
         }
 
       interactiveBodyDiv.appendChild(para);
       
     });
+
+    if(hasImmediateContent){
+      interactiveBodyDiv.classList.add('has-content');
+    }
     currentContainer.appendChild(interactiveBodyDiv);
   }
 
