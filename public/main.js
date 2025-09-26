@@ -121,7 +121,11 @@ function renderStep(step){
 
     if(step.interactiveBody){
     const interactiveBodyDiv = document.createElement("div");
-    interactiveBodyDiv.classList.add("interactive-body", "delayed-text");
+    interactiveBodyDiv.classList.add("interactive-body");
+
+    if (step.interactiveBodyClass){
+      step.interactiveBodyClass.forEach(cls => interactiveBodyDiv.classList.add(cls));
+    }
 
     let hasImmediateContent = false;
 

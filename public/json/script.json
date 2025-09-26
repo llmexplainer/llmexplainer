@@ -42,6 +42,7 @@
           "delay": 900
         }
       ],
+      "interactiveBodyClass": ["delayed-text"],
       "buttons": [
         { "text": "next", "trigger": "choice-next","class": ["button-stagger-1"], "delay": "7.0s"},
         { "text": "now", "trigger": "choice-now", "class": ["button-stagger-2"], "delay": "7.0s" },
@@ -73,6 +74,7 @@
           "delay": 400
         }
       ],
+      "interactiveBodyClass": ["continuous-text", "delayed-text"],
       "buttons": [
         {
           "text": "STAGE 1: Train a language model",
@@ -104,6 +106,7 @@
           "delay": 400
         }
       ],
+      "interactiveBodyClass": ["continuous-text", "delayed-text"],
       "buttons": [
         {
           "text": "STAGE 1: Train a language model",
@@ -133,7 +136,10 @@
           "speed":80,
           "delay": 400
         }
+        
       ],
+
+      "interactiveBodyClass": ["continuous-text", "delayed-text"],
       "buttons": [
         {
           "text": "STAGE 1: Train a language model",
@@ -165,6 +171,7 @@
           "delay": 400
         }
       ],
+      "interactiveBodyClass": ["continuous-text", "delayed-text"],
       "buttons": [
         {
           "text": "STAGE 1: Train a language model",
