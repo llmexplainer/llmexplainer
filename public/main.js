@@ -52,6 +52,7 @@ function renderStep(step){
     currentContainer.style.display = "flex";
     document.getElementById("main-container").style.display = "none";
   } else {
+    //browser styling made visible, navbar hidden
     document.querySelector(".browser-window").style.visibility="visible";
     document.querySelector(".navbar").style.display = "none";
     currentContainer = document.getElementById("main-container");
@@ -64,7 +65,7 @@ function renderStep(step){
   currentContainer.innerHTML = "";
   currentContainer.className = "";
 
-  //this is for browser styling later..i think
+  //additional classes 
   if(step.additionalClasses){
     step.additionalClasses.forEach((c) => {
         currentContainer.classList.add(c);
@@ -80,6 +81,8 @@ function renderStep(step){
 
   //all content renderers are in a look up table. This solves the issue of being limited in layout. 
   //In JSON, we can define an order and it puts things together accordingly. As opposed to having to do text > buttons all the time, for eg 
+
+  //if it is a timed step, it's handled here, and it reads from a "timer" key in the corresponding step. duration here is in ms. 
    if (step.timer) {
   setTimeout(() => {
     handleTrigger(step.timer.trigger);
@@ -96,6 +99,8 @@ function renderStep(step){
             step.body.forEach((p) => {
       const para = document.createElement("p");
       if (p.id) para.id = p.id;
+      //adding extra classes for styling, this is for classes that are specific to the element, such as the paragraph, 
+      // they exist in an array in the element key-value pair in the json. eg: {"text": "llms xyz", "class":["fade-in","another-class"]} 
       if (p.class) {
   p.class.forEach(cls => para.classList.add(cls));
 }
@@ -105,6 +110,7 @@ function renderStep(step){
 // }
 
       if (p.animation === 'typewriter'){
+        //delay was kind of a patchy addition, if i didnt want the typing to start immediately. this is also in ms. 
         const delay = p.delay || 0;
         setTimeout(()=> {
           typewriterEffect(para, p.text, p.speed || 50);
@@ -123,10 +129,12 @@ function renderStep(step){
     const interactiveBodyDiv = document.createElement("div");
     interactiveBodyDiv.classList.add("interactive-body");
 
+      //again any additional classes for specific p elements or so
     if (step.interactiveBodyClass){
       step.interactiveBodyClass.forEach(cls => interactiveBodyDiv.classList.add(cls));
     }
 
+    //this is to avoid rendering an empty div and making it visiblle before anything is populated it's looked at through this variable and a "has-content" class
     let hasImmediateContent = false;
 
     step.interactiveBody.forEach((i) => {
@@ -175,6 +183,7 @@ function renderStep(step){
 
       if (b.delay) {
         console.log("yeahyeah");
+        //a patchy fix for wanting buttons to delay even more thru css animations and the "delay" key in the json. For buttons, delay is in the button object and it's written as a STRING e.g: "7.0s", with the unit.
   btn.style.setProperty('--extra-delay', b.delay);
 }
 
