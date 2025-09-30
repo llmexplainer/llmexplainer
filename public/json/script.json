@@ -192,8 +192,31 @@
     },
     {
         "trigger":"stage-1",
-        "body":[{"text":"This will be stage 1"}]
-
+        "index": "3",
+        "order": ["body", "buttons", "interactiveBody"],
+        "body":[
+          {"text":"The first thing you’ll need to build a language model is training data, or large bodies of text that a language model looks for patterns in, and produces text based on. The larger the data, the more complex the model's ability to produce appropriate text: that's the large in large language model (LLM)."},
+          {"text": "The internet provides a large source of text data, like social media sites, blogs, digital books, or research papers. Select your model's training data below:"}],
+        "buttons": [
+        { "text": "Data Type 1", "trigger": "choice-data","class": ["button-choice"], "delay": "1.0s"},
+        { "text": "Data Type 2", "trigger": "choice-data", "class": ["button-choice"], "delay": "1.0s" },
+        { "text": "Data Type 3", "trigger": "choice-data", "class": ["button-choice"], "delay": "1.0s" },
+        { "text": "Data Type 4", "trigger": "choice-data", "class": ["button-choice"],"delay": "1.0s" }
+      ],
+        "buttons-2": 
+        [
+        { "text": "NEXT!", "trigger": "data-prob", "class": ["stage-btn"],"delay": "1.0s" }
+        ]
+    },
+    {
+        "trigger":"choice-data",
+        "order": ["body", "buttons", "interactiveBody"],
+        "body":[
+          {"text":"The first thing you’ll need to build a language model is training data, or large bodies of text that a language model looks for patterns in, and produces text based on. The larger the data, the more complex the model's ability to produce appropriate text: that's the large in large language model (LLM)."},
+          {"text": "The internet provides a large source of text data, like social media sites, blogs, digital books, or research papers. Select your model's training data below:"}],
+        "buttons": [
+        { "text": "Next", "trigger": "data-prob", "class": ["stage-btn"],"delay": "1.0s" }
+      ]
     }
   ]
 }

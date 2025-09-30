@@ -241,4 +241,20 @@ button {
   animation: fadeIn 0.5s ease-out calc(1.6s + var(--extra-delay, 0s)) forwards; 
 }
 
+.button-choice {
+  border-radius: 8px;
+  border-style: solid;
+  border-width: 2px;
+  background-color: lightgrey;
+  color: black;
+}
 
+.button-choice:hover {
+  background-color: lightgreen;
+
+}
+
+.button-choice:clicked {
+  background-color: green;
+  color: white;
+}
