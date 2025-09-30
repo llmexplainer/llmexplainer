@@ -202,11 +202,7 @@
         { "text": "Data Type 2", "trigger": "choice-data", "class": ["button-choice"], "delay": "1.0s" },
         { "text": "Data Type 3", "trigger": "choice-data", "class": ["button-choice"], "delay": "1.0s" },
         { "text": "Data Type 4", "trigger": "choice-data", "class": ["button-choice"],"delay": "1.0s" }
-      ],
-        "buttons-2": 
-        [
-        { "text": "NEXT!", "trigger": "data-prob", "class": ["stage-btn"],"delay": "1.0s" }
-        ]
+      ]
     },
     {
         "trigger":"choice-data",
@@ -215,8 +211,18 @@
           {"text":"The first thing you’ll need to build a language model is training data, or large bodies of text that a language model looks for patterns in, and produces text based on. The larger the data, the more complex the model's ability to produce appropriate text: that's the large in large language model (LLM)."},
           {"text": "The internet provides a large source of text data, like social media sites, blogs, digital books, or research papers. Select your model's training data below:"}],
         "buttons": [
-        { "text": "Next", "trigger": "data-prob", "class": ["stage-btn"],"delay": "1.0s" }
+        { "text": "Next", "trigger": "data-training-loader", "class": ["stage-btn"],"delay": "1.0s" }
       ]
+    },
+     {
+        "trigger": "data-training-loader",
+        "body": [{"text":"Going from massive data to a working model requires multiple stages of development which use extensive computing power.", "class":["transition-title"]}
+        ],
+        "timer":{"duration":2000, "trigger":"data-prob"}
+    },
+       {
+        "trigger": "data-prob",
+        "body": [{"text":"Next stage"}]
     }
   ]
 }

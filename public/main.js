@@ -25,7 +25,7 @@ async function loadScript() {
 
     console.log("1.", scriptByIndex, "\n2.", scriptByTrigger); //all good
 
-    renderStep(scriptByIndex[3]);
+    renderStep(scriptByIndex[1]);
   } catch (error) {
     console.error("Failed to load script:", error);
   }
