@@ -1,3 +1,5 @@
+
+
 {
   "comments": {"what's going on": "honestly idk, but think of all the elements having a bunch of values corresponding to each key which specificy the content, additional classes, potential delay, and so on.",
 "note":"pay attention to how classes are added, some are in arrays for example."},
@@ -222,8 +224,19 @@
     },
        {
         "trigger": "data-prob",
-        "body": [{"text":"Next stage"}]
+        "body": [{"text":"Next stage"}],
+        "timer":{"duration":2000, "trigger":"training-step-1"}
+    },
+    {
+      "trigger": "training-step-1",
+      "order": ["body","custom","buttons"],
+      "body": [{"text":"Based on your data, the model can estimate the probability of a character, word, or sequence of words occurring in text, based on how commonly it occurred in [data source], and generates new text accordingly. \nPick a sentence, and see what word is most likely to come next."}, {"text":"Select a sentence to complete:"}],
+      "buttons":[{"text": "continue training", "trigger":"training-step-2","class":["stage-btn"]}],
+      "autocompleteOptions": [{"sentence": "At the beach, I played with my ____",
+    "trigger": "beach-sentence"},
+    {"sentence":"At the concert, I ____", "trigger":"concert-sentence"} ]
     }
   ]
 }
+
 

@@ -3,6 +3,12 @@ let scriptByIndex = {};
 let scriptByTrigger = {};
 let UIData = {};
 
+const customRenderers = {
+  "training-step-1": renderTrainingStep1,
+  // "future-step-xyz": renderFutureStep
+};
+
+
 async function loadScript() {
   try {
     const response = await fetch("json/script.json");
@@ -187,7 +193,16 @@ function renderStep(step){
   btn.style.setProperty('--extra-delay', b.delay);
 }
 
-      btn.addEventListener("click", () => handleTrigger(b.trigger));
+     btn.addEventListener("click", () => {
+  // If it's a data type selection step, pass the button text as extraData
+  if (b.trigger === "choice-data") {
+    handleTrigger(b.trigger, b.text);
+  } else {
+    handleTrigger(b.trigger);
+  }
+});
+
+      
       buttonDiv.appendChild(btn);
       
     });
@@ -204,25 +219,129 @@ function renderStep(step){
 
   const renderOrder = step.order || ["body", "interactiveBody", "buttons"];
 
+
+
   renderOrder.forEach(contentType => {
-    if (contentRenderers[contentType]){
-        contentRenderers[contentType]();
-    }
-  });
+    // DISCUSS: so instead of dealing with each screens we have a default screen system and the possibility of custom elements? still not great, bc if i want to do generic -> custom -> generic,
+    //  ill just have to hard code the generic elements within the custom function. as to not refer to the buttons outside.
+  if (contentType === "custom" && customRenderers[step.trigger]) {
+   
+    customRenderers[step.trigger](step, currentContainer);
+  } else if (contentRenderers[contentType]) {
+    contentRenderers[contentType]();
+  }
+});
  
 
 }
 
-function handleTrigger(trigger) {
+function handleTrigger(trigger, extraData = null) {
   const step = scriptByTrigger[trigger] || scriptByIndex[parseInt(trigger)];
-  console.log(step);
-
-  if (step) {
-    renderStep(step);
-  } else {
-    console.log("what to do here");
+  
+  if (!step) {
+    console.warn("No step found for trigger:", trigger);
+    return;
   }
+  //to save training selection 
+  if (trigger === "choice-data" && extraData) {
+    userDataSelection = extraData;
+    console.log("User selected data type:", userDataSelection);
+  }
+
+
+
+
+  renderStep(step);
+
+  
 }
+
+const t1SentenceLikelihoods = {
+"beach-sentence": {"family":0.7, "pet":0.2,"sandcastle": 0.1},
+"concert-sentence": {"danced":0.6,"ate":0.1,"cried":0.3}
+}; 
+
+// function renderTrainingStep1(step, container = document.getElementById("main-container")){
+  
+// const selectSentence = document.createElement("select");
+// selectSentence.id = "sentence-select";
+
+// step.autocompleteOptions.forEach(opt => {
+//   const option = document.createElement("option");
+//   option.value = opt.trigger;
+//   option.textContent = opt.sentence;
+//   selectSentence.appendChild(option);
+// });
+
+// container.appendChild(selectSentence);
+
+// const likelihoodDiv = document.createElement("div");
+// likelihoodDiv.id = "likelihood-container";
+
+
+
+
+// }
+
+function renderTrainingStep1(step, container = document.getElementById("main-container")) {
+  // Step 1: create a container for the custom interactive part
+  const customDiv = document.createElement("div");
+  customDiv.classList.add("training-step-1");
+
+  // Step 2: Sentence dropdown
+  const sentenceLabel = document.createElement("p");
+  sentenceLabel.textContent = "Pick a sentence to complete:";
+  customDiv.appendChild(sentenceLabel);
+
+  const selectDropDown = document.createElement("select");
+  selectDropDown.id = "training-1-select";
+
+  step.autocompleteOptions.forEach(opt => {
+    const option = document.createElement("option");
+    option.value = opt.trigger;
+    option.textContent = opt.sentence;
+    selectDropDown.appendChild(option);
+  });
+
+  customDiv.appendChild(selectDropDown);
+
+  // Step 3: Likelihood container (bars)
+  const likelihoodContainer = document.createElement("div");
+  likelihoodContainer.id = "likelihood-container";
+  customDiv.appendChild(likelihoodContainer);
+
+  // Step 4: Update likelihood bars when sentence changes
+  selectDropDown.addEventListener("change", (e) => {
+    const selectedTrigger = e.target.value;
+    likelihoodContainer.innerHTML = ""; // clear previous bars
+
+    const likelihoods = t1SentenceLikelihoods[selectedTrigger]; // your object
+    for (const [word, prob] of Object.entries(likelihoods)) {
+      const barWrapper = document.createElement("div");
+      barWrapper.classList.add("likelihood-bar-wrapper");
+
+      const label = document.createElement("span");
+      label.textContent = word;
+      label.classList.add("word-label");
+
+      const bar = document.createElement("div");
+      bar.classList.add("likelihood-bar");
+      bar.style.width = `${prob * 100}%`;
+
+      barWrapper.appendChild(label);
+      barWrapper.appendChild(bar);
+      likelihoodContainer.appendChild(barWrapper);
+    }
+  });
+
+  // Step 5: Append everything to the main container
+  container.appendChild(customDiv);
+
+  // Optional: trigger initial display
+  selectDropDown.dispatchEvent(new Event("change"));
+}
+
+
 
 function typewriterEffect(element,text,speed = 50, callback){
   element.textContent= '';
