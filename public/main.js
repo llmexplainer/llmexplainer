@@ -284,14 +284,11 @@ const t1SentenceLikelihoods = {
 // }
 
 function renderTrainingStep1(step, container = document.getElementById("main-container")) {
-  // Step 1: create a container for the custom interactive part
+  
   const customDiv = document.createElement("div");
   customDiv.classList.add("training-step-1");
 
-  // Step 2: Sentence dropdown
-  const sentenceLabel = document.createElement("p");
-  sentenceLabel.textContent = "Pick a sentence to complete:";
-  customDiv.appendChild(sentenceLabel);
+ 
 
   const selectDropDown = document.createElement("select");
   selectDropDown.id = "training-1-select";
@@ -305,17 +302,17 @@ function renderTrainingStep1(step, container = document.getElementById("main-con
 
   customDiv.appendChild(selectDropDown);
 
-  // Step 3: Likelihood container (bars)
+  // likelihood container (bars)
   const likelihoodContainer = document.createElement("div");
   likelihoodContainer.id = "likelihood-container";
   customDiv.appendChild(likelihoodContainer);
 
-  // Step 4: Update likelihood bars when sentence changes
+  //Update likelihood bars when sentence changes
   selectDropDown.addEventListener("change", (e) => {
     const selectedTrigger = e.target.value;
     likelihoodContainer.innerHTML = ""; // clear previous bars
 
-    const likelihoods = t1SentenceLikelihoods[selectedTrigger]; // your object
+    const likelihoods = t1SentenceLikelihoods[selectedTrigger]; //  object
     for (const [word, prob] of Object.entries(likelihoods)) {
       const barWrapper = document.createElement("div");
       barWrapper.classList.add("likelihood-bar-wrapper");
@@ -334,11 +331,11 @@ function renderTrainingStep1(step, container = document.getElementById("main-con
     }
   });
 
-  // Step 5: Append everything to the main container
+  // append everything to the main container
   container.appendChild(customDiv);
 
-  // Optional: trigger initial display
-  selectDropDown.dispatchEvent(new Event("change"));
+  // // Optional: trigger initial display
+  // selectDropDown.dispatchEvent(new Event("change"));
 }
 
 
