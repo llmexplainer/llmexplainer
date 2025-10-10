@@ -260,30 +260,50 @@ button {
 }
 
 
-/* Likelihood styling */
 #likelihood-container {
   display: flex;
-  gap: 6rem; 
-  align-items: flex-end; 
-  margin-top: 20px;
+  flex-direction: row;
+  gap: 3rem;
+  margin-top: 1rem;
 }
 
 .likelihood-bar-wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 60px; 
+  gap: 0.5rem;
 }
 
 .word-label {
-  margin-bottom: 5px;
-  
+  font-weight: 500;
+  font-size: 1rem;
   text-align: center;
 }
 
 .likelihood-bar {
-  height: 20px; 
-  background-color: #4caf50; 
-  border-radius: 4px;
-  transition: width 0.3s ease; 
+  width: 5rem;
+  height: 1rem;
+  background-color: #eee;
+  border-radius: 0.5rem;
+  position: relative;
+  overflow: hidden;
 }
+
+.likelihood-bar-fill {
+  background-color: #4caf50;
+  height: 100%;
+  transition: width 0.5s ease;
+}
+
+.likelihood-number {
+  position: absolute;
+  right: 0.2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.75rem;
+  color: #242323;
+  font-weight: 500;
+}
+
+
+

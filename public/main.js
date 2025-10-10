@@ -284,11 +284,8 @@ const t1SentenceLikelihoods = {
 // }
 
 function renderTrainingStep1(step, container = document.getElementById("main-container")) {
-  
   const customDiv = document.createElement("div");
   customDiv.classList.add("training-step-1");
-
- 
 
   const selectDropDown = document.createElement("select");
   selectDropDown.id = "training-1-select";
@@ -302,41 +299,48 @@ function renderTrainingStep1(step, container = document.getElementById("main-con
 
   customDiv.appendChild(selectDropDown);
 
-  // likelihood container (bars)
   const likelihoodContainer = document.createElement("div");
   likelihoodContainer.id = "likelihood-container";
   customDiv.appendChild(likelihoodContainer);
 
-  //Update likelihood bars when sentence changes
   selectDropDown.addEventListener("change", (e) => {
     const selectedTrigger = e.target.value;
-    likelihoodContainer.innerHTML = ""; // clear previous bars
+    likelihoodContainer.innerHTML = "";
 
-    const likelihoods = t1SentenceLikelihoods[selectedTrigger]; //  object
+    const likelihoods = t1SentenceLikelihoods[selectedTrigger];
+
     for (const [word, prob] of Object.entries(likelihoods)) {
-      const barWrapper = document.createElement("div");
-      barWrapper.classList.add("likelihood-bar-wrapper");
+      const wrapper = document.createElement("div");
+      wrapper.classList.add("likelihood-bar-wrapper");
 
       const label = document.createElement("span");
-      label.textContent = word;
       label.classList.add("word-label");
+      label.textContent = word;
 
       const bar = document.createElement("div");
       bar.classList.add("likelihood-bar");
-      bar.style.width = `${prob * 100}%`;
 
-      barWrapper.appendChild(label);
-      barWrapper.appendChild(bar);
-      likelihoodContainer.appendChild(barWrapper);
+      const fill = document.createElement("div");
+      fill.classList.add("likelihood-bar-fill");
+      fill.style.width = `${prob * 100}%`;
+
+      const number = document.createElement("span");
+      number.classList.add("likelihood-number");
+      number.textContent = `${Math.round(prob * 100)}%`;
+
+      bar.appendChild(fill);
+      bar.appendChild(number);
+      wrapper.appendChild(label);
+      wrapper.appendChild(bar);
+      likelihoodContainer.appendChild(wrapper);
     }
   });
 
-  // append everything to the main container
+  selectDropDown.dispatchEvent(new Event("change"));
   container.appendChild(customDiv);
-
-  // // Optional: trigger initial display
-  // selectDropDown.dispatchEvent(new Event("change"));
 }
+
+
 
 
 
