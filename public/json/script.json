@@ -235,6 +235,16 @@
       "autocompleteOptions": [{"sentence": "At the beach, I played with my ____",
     "trigger": "beach-sentence"},
     {"sentence":"At the concert, I ____", "trigger":"concert-sentence"} ]
+    },
+
+    {
+      "trigger": "training-step-2",
+      "body": [{"text":"test for now, slightly confused"}],
+      "timer":{"duration":200, "trigger":"training-step-3"}
+    },
+    {
+      "trigger":"training-step-3",
+      "body":[{"text":"By acquiring information and learning from existing text patterns, a language model learns to ramble about a topic."},{"text":"For example, if you ask:"},{"text":"What is your first name?", "type":"orange"},{"text":"Based on what question typically occurs next in empty forms online, it may respond with:"},{"text":"What is your last name?","type":"red"},{"text":"This is where finetuning comes in, to turn the model from sounding like a random text generator to a realistic assistant."}]
     }
   ]
 }

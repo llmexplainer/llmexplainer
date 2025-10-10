@@ -307,3 +307,10 @@ button {
 
 
 
+.text-red{
+  background-color: rgb(242, 120, 120);
+}
+
+.text-orange{
+  background-color: rgb(245, 172, 70);
+}
