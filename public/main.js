@@ -2,11 +2,21 @@ let scriptData = [];
 let scriptByIndex = {};
 let scriptByTrigger = {};
 let UIData = {};
+let userDataSelection = null;
 
 const customRenderers = {
   "training-step-1": renderTrainingStep1,
   // "future-step-xyz": renderFutureStep
 };
+
+let currentProgress = 0;
+const PROGRESS_MILESTONES = {
+  "stage-1": 0,
+  "choice-data":10,
+  "training-step-1":20,
+//add and edit as we go
+
+}; 
 
 async function loadScript() {
   try {
@@ -45,6 +55,27 @@ function populateUI(UIData) {
   document.querySelector("#navbar-lang").textContent = UIData.navbar.language;
 }
 
+function updateProgressBar(trigger){
+  const progressFill = document.getElementById("progress-fill");
+  const progressText = document.getElementById("progress-text");
+
+  if (PROGRESS_MILESTONES.hasOwnProperty(trigger)){
+    currentProgress = PROGRESS_MILESTONES[trigger];
+    progressFill.style.width = `${currentProgress}%`;
+    progressText.textContent = `${currentProgress}%`;
+  }
+}
+
+function showProgressBar(){
+  const progressBar = document.getElementById("progress-bar");
+  progressBar.style.display = "flex";
+}
+
+function hideProgressBar(){
+  const progressBar = document.getElementById("progress-bar");
+  progressBar.style.display = "none";
+}
+
 //display current step
 
 function renderStep(step) {
@@ -54,6 +85,7 @@ function renderStep(step) {
     currentContainer = document.getElementById("intro-container");
     currentContainer.style.display = "flex";
     document.getElementById("main-container").style.display = "none";
+     hideProgressBar();
   } else {
     //browser styling made visible, navbar hidden
     document.querySelector(".browser-window").style.visibility = "visible";
@@ -64,6 +96,10 @@ function renderStep(step) {
     currentContainer.style.visibility = "visible";
     currentContainer.style.display = "flex";
   }
+
+  if (step.trigger && PROGRESS_MILESTONES.hasOwnProperty(step.trigger)){
+    showProgressBar();
+    updateProgressBar(step.trigger);  }
 
   currentContainer.innerHTML = "";
   currentContainer.className = "";
