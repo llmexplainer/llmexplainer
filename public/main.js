@@ -6,7 +6,7 @@ let userDataSelection = null;
 
 const customRenderers = {
   "training-step-1": renderTrainingStep1,
-  // "future-step-xyz": renderFutureStep
+ "finetuning-step-2": renderFineTuningStep2
 };
 
 let currentProgress = 0;
@@ -102,6 +102,10 @@ function showStageTag(){
 //display current step
 
 function renderStep(step) {
+  const mainContainer = document.getElementById("main-container");
+  let genericContainer = document.getElementById("generic-container");
+
+
   //start step, intro container
   if (step.index === "1") {
     document.querySelector(".navbar").style.display = "flex";
@@ -113,11 +117,12 @@ function renderStep(step) {
     //browser styling made visible, navbar hidden
     document.querySelector(".browser-window").style.visibility = "visible";
     document.querySelector(".navbar").style.display = "none";
-    currentContainer = document.getElementById("main-container");
     document.getElementById("intro-container").innerHTML = "";
     document.getElementById("intro-container").style.display = "none";
-    currentContainer.style.visibility = "visible";
-    currentContainer.style.display = "flex";
+    currentContainer = genericContainer;
+    mainContainer.style.visibility = "visible";
+    mainContainer.style.display = "flex";
+  
   }
 
   if (step.trigger && PROGRESS_MILESTONES.hasOwnProperty(step.trigger)){
@@ -131,6 +136,7 @@ function renderStep(step) {
 
   currentContainer.innerHTML = "";
   currentContainer.className = "";
+  currentContainer.classList.add("content-zone");
 
   //additional classes
   if (step.additionalClasses) {
@@ -169,11 +175,8 @@ function renderStep(step) {
            
           }
           if (p.type) para.classList.add(`text-${p.type}`);
-           console.log(p.type);
-          //        if (p.delay) {
-          //         console.log("yup");
-          //   para.style.animationDelay = `${p.delay}s`;
-          // }
+          
+         
 
           if (p.animation === "typewriter") {
             //delay was kind of a patchy addition, if i didnt want the typing to start immediately. this is also in ms.
@@ -279,6 +282,8 @@ function renderStep(step) {
       contentRenderers[contentType]();
     }
   });
+
+  
 }
 
 function handleTrigger(trigger, extraData = null) {
@@ -360,6 +365,73 @@ function renderTrainingStep1(step, container = document.getElementById("main-con
   selectDropDown.dispatchEvent(new Event("change"));
   container.appendChild(customDiv);
 }
+
+function renderFineTuningStep2(step){
+  const container = document.getElementById("finetuning-container");
+  const finetuningQuestion = document.getElementById("finetuning-question");
+  const finetuningPrompt = document.getElementById("finetuning-prompt");
+  const resp1 = document.getElementById("finetuning-response-1");
+  const resp2 = document.getElementById("finetuning-response-2");
+  const nextBtn = document.getElementById("finetuning-next");
+  const roundIndicator = document.getElementById("finetuning-round-indicator");
+  const errorMsg = document.getElementById("finetuning-error");
+
+  let currentRound = 0;
+  let selectedResponse = null;
+  const rounds = step.finetuningRounds || []
+
+
+  container.style.display = "flex";
+
+  function loadRound(){
+    const round = rounds[currentRound];
+
+    finetuningQuestion.textContent = round.question;
+    finetuningPrompt.textContent = round.prompt;
+    resp1.textContent = round.responses[0];
+    resp2.textContent = round.responses[1];
+
+    roundIndicator.textContent= `${currentRound + 1}/${rounds.length}`;
+
+    selectedResponse = null;
+    nextBtn.disabled = true;
+    errorMsg.style.display ="none";
+    [resp1,resp2].forEach((btn) => btn.classList.remove("selected"));
+
+  }
+
+  [resp1, resp2].forEach((btn) => {
+    btn.addEventListener("click", () => {
+      selectedResponse = btn.textContent;
+      [resp1, resp2].forEach((b) => b.classList.remove("selected"));
+      btn.classList.add("selected");
+      nextBtn.disabled = false;
+      errorMsg.style.display = "none";
+    });
+  });
+nextBtn.textContent = step.nextButton || "Next";
+
+  nextBtn.addEventListener("click", () => {
+    if (!selectedResponse) {
+      errorMsg.style.display = "block";
+      return;
+    }
+
+    currentRound++;
+
+    if (currentRound < rounds.length) {
+      loadRound();
+    } else {
+      // hide after last round
+      container.style.display = "none";
+      handleTrigger(step.finalTrigger);
+    }
+  });
+
+  loadRound();
+}
+
+
 
 function typewriterEffect(element, text, speed = 50, callback) {
   element.textContent = "";

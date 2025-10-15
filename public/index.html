@@ -18,7 +18,7 @@
   <body>
     <!-- MOVE ALL TEXT CONTENT TO JSON -->
     <nav class="navbar">
-        <div id="navbar-title"></div>
+      <div id="navbar-title"></div>
       <ul id="navbar-list">
         <li class="navbar-link" id="navbar-resources"><a href="#"></a></li>
         <li class="navbar-link" id="navbar-about"><a href="#"></a></li>
@@ -26,38 +26,55 @@
       </ul>
     </nav>
 
-    
-    <div class="container" id="intro-container">
-
-    </div>
-<div class="browser-window">
-  <div class="browser-header">
-    <span class="dot red"></span>
-    <span class="dot yellow"></span>
-    <span class="dot green"></span>
-    <div class="url-bar">https://example.com</div>
-
-    
-  </div>
-  <div id="progress-bar" class="progress-bar" >
-    <div class="spacer"></div>
-
-      <div class="progress-bar-container">
-        <div id="progress-fill" class="progress-fill"></div>
-        <span id="progress-text" class="progress-text">0%</span>
+    <div class="container" id="intro-container"></div>
+    <div class="browser-window">
+      <div class="browser-header">
+        <span class="dot red"></span>
+        <span class="dot yellow"></span>
+        <span class="dot green"></span>
+        <div class="url-bar">https://example.com</div>
       </div>
-      <div class="stage-tag" id="stage-tag">Training</div>
+      <div id="progress-bar" class="progress-bar">
+        <div class="spacer"></div>
+
+        <div class="progress-bar-container">
+          <div id="progress-fill" class="progress-fill"></div>
+          <span id="progress-text" class="progress-text">0%</span>
+        </div>
+        <div class="stage-tag" id="stage-tag">Training</div>
+      </div>
+      <div class="browser-content" id="main-container">
+        <div id="generic-container"></div>
+        <!-- script steps happen here -->
+        <div class="finetuning-container" id="finetuning-container" style="display:none;">
+  <div id="finetuning-step">
+    <div class="finetuning-header">
+      <p id="finetuning-question" class="finetuning-question">tesst?</p>
+      <div id="finetuning-round-indicator" class="finetuning-round-indicator">1/2</div>
     </div>
-  <div class="browser-content" id="main-container">
-    <!-- script steps happen here -->
+
+    <p id="finetuning-prompt" class="finetuning-prompt">test</p>
+
+    <div id="finetuning-responses" class="finetuning-responses">
+      <button id="finetuning-response-1" class="finetuning-response">test?</button>
+      <button id="finetuning-response-2" class="finetuning-response">test??</button>
+    </div>
+
+    <button id="finetuning-next" class="finetuning-next" disabled>test</button>
+
+    <div id="finetuning-error" class="finetuning-error" style="display:none;">
+      
+    
+    </div>
   </div>
 </div>
+
+      </div>
+    </div>
 
     <script src="main.js"></script>
     <script src="sketch.js"></script>
   </body>
 </html>
-
-
 
 <!-- style="display: none;" -->
