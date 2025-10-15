@@ -18,6 +18,12 @@ const PROGRESS_MILESTONES = {
 
 }; 
 
+const STAGE_INFO = {
+  "stage-1": { name: "Training", color: "#c9fdc4ff" },           
+  "stage-2-start": { name: "Fine-tuning", color: "#d1d7faff" },  
+  "stage-3-start": { name: "Deployment", color: "#fedaa0ff" },   
+};
+
 async function loadScript() {
   try {
     const response = await fetch("json/script.json");
@@ -76,6 +82,22 @@ function hideProgressBar(){
   progressBar.style.display = "none";
 }
 
+
+function updateStageTag(trigger) {
+  const stageTag = document.getElementById("stage-tag");
+
+
+  if (STAGE_INFO.hasOwnProperty(trigger)) {
+    const stage = STAGE_INFO[trigger];
+    stageTag.textContent = stage.name;
+    stageTag.style.backgroundColor = stage.color;
+  }
+}
+
+function showStageTag(){
+  const stageTag = document.getElementById("stage-tag");
+  stageTag.style.display = "flex";
+}
 //display current step
 
 function renderStep(step) {
@@ -100,6 +122,11 @@ function renderStep(step) {
   if (step.trigger && PROGRESS_MILESTONES.hasOwnProperty(step.trigger)){
     showProgressBar();
     updateProgressBar(step.trigger);  }
+
+    if (step.trigger && STAGE_INFO.hasOwnProperty(step.trigger)) {
+      showStageTag();
+      updateStageTag(step.trigger);
+    }
 
   currentContainer.innerHTML = "";
   currentContainer.className = "";
