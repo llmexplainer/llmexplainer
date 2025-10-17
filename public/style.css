@@ -479,12 +479,53 @@ button {
 
 
 
-
 .generic-container{
  
   display: contents;
 
 }
+
+
+#finetuning-step-4 {
+  width: 100%;          
+  display: flex;       
+  justify-content: center; 
+  padding: 0.5rem 0;   
+  box-sizing: border-box;
+}
+
+.slider-container {
+  width: 90%;           
+  height: 1.5rem;
+  background: #ddd;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+
+.slider-fill{
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background: #4190e2;
+  transition: width 0.1s ease-out;
+}
+
+.slider-value{
+  position:absolute;
+  right: 0.5rem;
+  top: 0.2rem;
+  font-size: 0.8rem;
+  color: #fff;
+  pointer-events: none;
+  user-select: none;
+}
+
+
+
+
 
 /* .content-zone{
   max-width: 100%;
