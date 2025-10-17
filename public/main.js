@@ -185,7 +185,7 @@ function renderStep(step) {
               typewriterEffect(para, p.text, p.speed || 50);
             }, delay);
           } else {
-            para.textContent = p.text;
+            para.innerHTML = p.text;
           }
           currentContainer.appendChild(para);
         });
@@ -221,7 +221,7 @@ function renderStep(step) {
               typewriterEffect(para, i.text, i.speed || 50);
             }, delay);
           } else {
-            para.textContent = i.text;
+            para.innerHTML = i.text;
             hasImmediateContent = true;
           }
 
@@ -379,6 +379,7 @@ function renderFineTuningStep2(step){
   let currentRound = 0;
   let selectedResponse = null;
   const rounds = step.finetuningRounds || []
+  console.log(rounds);
 
 
   container.style.display = "flex";

@@ -441,8 +441,8 @@ button {
 }
 
 .finetuning-response.selected {
-  background: #d1d7fa;
-  border-color: #5a6ef0;
+  background: #d1d7faff;
+  border-color: rgb(127, 146, 255);
 }
 
 .finetuning-next {
@@ -457,7 +457,7 @@ button {
 }
 
 .finetuning-next:enabled {
-  background: #5a6ef0;
+  background: rgb(127, 146, 255);
   color: white;
 }
 

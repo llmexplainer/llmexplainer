@@ -239,7 +239,7 @@
 
     {
       "trigger":"training-step-2",
-      "body":[{"text":"By acquiring information and learning from existing text patterns, a language model learns to ramble about a topic."},{"text":"For example, if you ask:"},{"text":"What is your first name?", "type":"orange"},{"text":"Based on what question typically occurs next in empty forms online, it may respond with:"},{"text":"What is your last name?","type":"red"},{"text":"This is where finetuning comes in, to turn the model from sounding like a random text generator to a realistic assistant."}],
+      "body":[{"text":"By acquiring information and learning from existing text patterns, a language model learns to ramble about a topic."},{"text":"For example, if you ask: <span class='text-orange'>What is your first name?</span>" },{"text":"Based on what question typically occurs next in empty forms online, it may respond with: <span class='text-red'>What is your last name?</span>"},{"text":"This is where finetuning comes in, to turn the model from sounding like a random text generator to a realistic assistant."}],
       "buttons":[{"text": "STAGE 2: Fine tuning", "trigger":"finetuning-loader","class":["stage-btn"]}]
       
     },
@@ -289,6 +289,11 @@
       "nextButton":"Next",
       "finalTrigger": "finetuning-step-3"
      
+    },
+    {
+      "trigger":"finetuning-step-3",
+      "body":[{"text":"In this final step, you can craft your chatbot's \"personality,\" as in decide how it responds to questions. It can sound more like how your friend writes, or your teacher, or your boss. But remember, the underlying technology will still do the same thing:"}, {"text":"<strong>Make statistical predictions about what text should come next.</strong>"}],
+      "buttons":[{"text": "Next", "trigger":"training-step-4","class":["stage-btn"]}]
     }
 
   ]
