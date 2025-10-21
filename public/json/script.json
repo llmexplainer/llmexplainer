@@ -294,6 +294,10 @@
       "trigger":"finetuning-step-3",
       "body":[{"text":"In this final step, you can craft your chatbot's \"personality,\" as in decide how it responds to questions. It can sound more like how your friend writes, or your teacher, or your boss. But remember, the underlying technology will still do the same thing:"}, {"text":"<strong>Make statistical predictions about what text should come next.</strong>"}],
       "buttons":[{"text": "Next", "trigger":"finetuning-step-4","class":["stage-btn"]}]
+    },
+    {
+      "trigger":"finetuning-step-4",
+      "order":["custom"]
     }
 
   ]

@@ -494,7 +494,21 @@ button {
   box-sizing: border-box;
 }
 
-.slider-container {
+.slider-container{
+  width:100%;
+  display: flex;
+  flex-direction: row;
+  gap:0.7rem;
+  font-size: 1.2rem;
+}
+
+.sliders-group{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  gap:3rem;
+}
+.slider {
   width: 90%;           
   height: 1.5rem;
   background: #ddd;

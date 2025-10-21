@@ -46,37 +46,77 @@
       <div class="browser-content" id="main-container">
         <div id="generic-container"></div>
         <!-- script steps happen here -->
-        <div class="finetuning-container" id="finetuning-container" style="display:none;">
-  <div id="finetuning-step">
-    <div class="finetuning-header">
-      <p id="finetuning-question" class="finetuning-question">tesst?</p>
-      <div id="finetuning-round-indicator" class="finetuning-round-indicator">1/2</div>
-    </div>
+        <div
+          class="finetuning-container"
+          id="finetuning-container"
+          style="display: none"
+        >
+          <div id="finetuning-step">
+            <div class="finetuning-header">
+              <p id="finetuning-question" class="finetuning-question">tesst?</p>
+              <div
+                id="finetuning-round-indicator"
+                class="finetuning-round-indicator"
+              >
+                1/2
+              </div>
+            </div>
 
-    <p id="finetuning-prompt" class="finetuning-prompt">test</p>
+            <p id="finetuning-prompt" class="finetuning-prompt">test</p>
 
-    <div id="finetuning-responses" class="finetuning-responses">
-      <button id="finetuning-response-1" class="finetuning-response">test?</button>
-      <button id="finetuning-response-2" class="finetuning-response">test??</button>
-    </div>
+            <div id="finetuning-responses" class="finetuning-responses">
+              <button id="finetuning-response-1" class="finetuning-response">
+                test?
+              </button>
+              <button id="finetuning-response-2" class="finetuning-response">
+                test??
+              </button>
+            </div>
 
-    <button id="finetuning-next" class="finetuning-next" disabled>test</button>
+            <button id="finetuning-next" class="finetuning-next" disabled>
+              test
+            </button>
 
-    <div id="finetuning-error" class="finetuning-error" style="display:none;">
-      
-    
-    </div>
-  </div>
-</div>
-<div id="finetuning-step-4" style="display:none;">
-  <div class="slider-container" id="slider">
-    <div class="slider-fill" id="fill">
-      <span class="slider-value" id="value">50%</span>
-    </div>
-  </div>
-  
-</div>
+            <div
+              id="finetuning-error"
+              class="finetuning-error"
+              style="display: none"
+            ></div>
+          </div>
+        </div>
+        <div id="finetuning-step-4" style="display:none;">
+          
+          <div class="sliders-group">
+            <div class="slider-container">
+              <span class="slider-label" id="slider-label-1"></span>
+              <div class="slider" id="slider-1">
+                <div class="slider-fill" id="fill-1">
+                  <span class="slider-value" id="value">50%</span>
+                </div>
+              </div>
+            </div>
 
+            <div class="slider-container">
+              <span class="slider-label" id="slider-label-2"></span>
+              <div class="slider" id="slider-2">
+                <div class="slider-fill" id="fill-2">
+                  <span class="slider-value" id="value">50%</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="slider-container">
+              <span class="slider-label" id="slider-label-3"></span>
+              <div class="slider" id="slider-3">
+                <div class="slider-fill" id="fill-3">
+                  <span class="slider-value" id="value">50%</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button id="generate-txt-btn" class="finetuning-4-next"></button>
+          <p class="generated-text" id="finetuning-4-generated-text"></p>
+        </div>
       </div>
     </div>
 
