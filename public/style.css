@@ -64,7 +64,7 @@ button {
   align-items: center;
   width: 60rem;                 
   max-width: 90%;             
-  min-height: 35rem;
+  min-height: 30rem;
    transition: opacity 2s ease-in-out;   
 }
 
@@ -545,7 +545,30 @@ button {
 }
 
 
+#finetuning-4-generated-text-container{
+  /* visibility: hidden; */
+  background-color: #f2f2f2;
+  border-radius: 12px;
+  padding: 2rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 3s ease-in, visibility 3s linear 3s;
 
+}
+
+
+#finetuning-4-generated-text-container.visible {
+  opacity: 1;
+  visibility: visible;
+  transition-delay: 0s;
+}
+#finetuning-4-generated-text{
+  background-color: white;
+  border-radius: 5px;
+  padding: 0.5rem;
+  width:45%;
+  font-size: 1rem;
+}
 
 /* .content-zone{
   max-width: 100%;

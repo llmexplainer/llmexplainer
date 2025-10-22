@@ -494,6 +494,7 @@ function renderFineTuningStep4(step){
   });
 
   const generateBtn = document.getElementById("generate-txt-btn");
+  const outputContainer = document.getElementById("finetuning-4-generated-text-container");
   const output = document.getElementById("finetuning-4-generated-text");
 
   generateBtn.textContent = step.generateButtonText;
@@ -503,8 +504,10 @@ function renderFineTuningStep4(step){
     const s2 = sliderValues.slider2 ?? 50;
     const s3 = sliderValues.slider3 ?? 50; 
 
-    const generatedText = `Your model sounds ${s1} random, and ${s2} friendly and ${s3} wordy`;
+    const generatedText = `Your model sounds ${s1}% random, and ${s2}% friendly and ${s3}% wordy`;
+    outputContainer.classList.add("visible");
     output.textContent = generatedText; 
+    
   });
 
 
