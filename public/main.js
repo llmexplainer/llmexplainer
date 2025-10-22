@@ -6,7 +6,8 @@ let userDataSelection = null;
 
 const customRenderers = {
   "training-step-1": renderTrainingStep1,
- "finetuning-step-2": renderFineTuningStep2
+ "finetuning-step-2": renderFineTuningStep2,
+ "finetuning-step-4": renderFineTuningStep4,
 };
 
 let currentProgress = 0;
@@ -431,6 +432,89 @@ nextBtn.textContent = step.nextButton || "Next";
 
   loadRound();
 }
+
+
+function renderFineTuningStep4(step){
+
+  const finetuningStep4 = document.getElementById("finetuning-step-4");
+  finetuningStep4.style.display = "flex"; 
+
+  const sliderLabels = step.sliderLabels;
+
+  sliderLabels.forEach((label, i) =>{
+    const sliderLabel = document.getElementById(`slider-label-${i + 1}`);
+    if (sliderLabel){
+      sliderLabel.textContent = label;
+    }
+  });
+
+
+  //slider drag
+  const sliders = document.querySelectorAll(".slider");
+  const sliderValues ={};
+
+  sliders.forEach((slider,i) => {
+    const fill = slider.querySelector(".slider-fill");
+    const currentValue = fill.querySelector(".slider-value");
+
+    let isDragging = false; 
+
+    const updateSlider = (e) => {
+      const rect = slider.getBoundingClientRect();
+      const x = e.clientX ?? e.touches[0].clientX;
+
+      let percent = ((x-rect.left) / rect.width) *100; 
+      percent = Math.max(0, Math.min(100, percent));
+      fill.style.width = `${percent}%`; 
+      currentValue.textContent = `${Math.round(percent)}%`; 
+      sliderValues[`slider${i+1}`] = Math.round(percent); 
+      console.log(sliderValues);
+    }; 
+
+    slider.addEventListener("mousedown", (e) => {
+      isDragging = true;
+      updateSlider(e);
+    });
+
+    slider.addEventListener("touchstart", (e) => {
+      isDragging = true;
+      updateSlider(e);
+    });
+
+    document.addEventListener("mousemove", (e) => {
+      if (isDragging) updateSlider(e);
+    });
+
+    document.addEventListener("touchmove", (e) => {
+      if (isDragging) updateSlider(e);
+    });
+
+    document.addEventListener("mouseup", () => (isDragging = false));
+    document.addEventListener("touchend", () => (isDragging = false));
+  });
+
+  const generateBtn = document.getElementById("generate-txt-btn");
+  const output = document.getElementById("finetuning-4-generated-text");
+
+  generateBtn.textContent = step.generateButtonText;
+
+  generateBtn.addEventListener("click", () => {
+    const s1 = sliderValues.slider1 ?? 50;
+    const s2 = sliderValues.slider2 ?? 50;
+    const s3 = sliderValues.slider3 ?? 50; 
+
+    const generatedText = `Your model sounds ${s1} random, and ${s2} friendly and ${s3} wordy`;
+    output.textContent = generatedText; 
+  });
+
+
+
+}
+
+
+
+
+
 
 
 

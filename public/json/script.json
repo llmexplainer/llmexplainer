@@ -296,9 +296,11 @@
       "buttons":[{"text": "Next", "trigger":"finetuning-step-4","class":["stage-btn"]}]
     },
     {
-      "trigger":"finetuning-step-4",
-      "order":["custom"]
-    }
+  "trigger": "finetuning-step-4",
+  "order": ["custom"],
+  "sliderLabels": ["Random", "Friendly", "Wordy"],
+  "generateButtonText": "Generate Text"
+}
 
   ]
 }

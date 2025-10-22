@@ -84,12 +84,12 @@ button {
 
 #main-container {
  
-   background: #fff;           
+   background: transparent;           
   /* border: 0.125rem solid #ccc; 
   box-shadow: 0 0.5rem 1.5rem rgba(0,0,0,0.1);  */
   border-radius: 0.5rem; 
   visibility: hidden;
-  padding: 3rem 5rem;
+  padding: 0.5rem 3rem;
   margin: 2rem auto;
   font-size: 1.5rem;
   display: flex;
@@ -488,7 +488,8 @@ button {
 
 #finetuning-step-4 {
   width: 100%;          
-  display: flex;       
+  display: flex;  
+  flex-direction: column;     
   justify-content: center; 
   padding: 0.5rem 0;   
   box-sizing: border-box;
@@ -537,6 +538,11 @@ button {
   user-select: none;
 }
 
+.finetuning-4-next{
+  width: 50%;
+  margin: 3rem auto;
+  padding: 0.7rem;
+}
 
 
 
