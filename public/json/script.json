@@ -299,7 +299,15 @@
   "trigger": "finetuning-step-4",
   "order": ["custom"],
   "sliderLabels": ["Random", "Friendly", "Wordy"],
-  "generateButtonText": "Generate Text"
+  "generateButtonText": "Generate Text",
+  "nextButton":[{"text":"Next", "trigger":"stage-3-loader", "class":["stage-btn"]}]
+
+},
+{
+  "trigger":"stage-3-loader",
+  "body":[{"text":"Stage 3: Try it out!"}],
+  "timer":{"duration":2000, "trigger":"stage-3A"}
+
 }
 
   ]
