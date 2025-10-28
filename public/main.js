@@ -23,7 +23,7 @@ const PROGRESS_MILESTONES = {
 const STAGE_INFO = {
   "stage-1": { name: "Training", color: "#c9fdc4ff" },           
   "finetuning-loader": { name: "Fine-tuning", color: "#d1d7faff" },  
-  "stage-3-start": { name: "Deployment", color: "#fedaa0ff" },   
+  "stage-3A-chatbot": { name: "Deployment", color: "#fedaa0ff" },   
 };
 
 async function loadScript() {
