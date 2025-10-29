@@ -118,6 +118,7 @@ function renderStep(step) {
   } else {
     //browser styling made visible, navbar hidden
     document.querySelector(".browser-window").style.visibility = "visible";
+     document.querySelector(".browser-window").style.display = "flex";
     document.querySelector(".navbar").style.display = "none";
     document.getElementById("intro-container").innerHTML = "";
     document.getElementById("intro-container").style.display = "none";
