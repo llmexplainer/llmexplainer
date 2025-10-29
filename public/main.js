@@ -8,6 +8,7 @@ const customRenderers = {
   "training-step-1": renderTrainingStep1,
  "finetuning-step-2": renderFineTuningStep2,
  "finetuning-step-4": renderFineTuningStep4,
+ "stage-3A-chatbot": renderStage3Chatbot,
 };
 
 let currentProgress = 0;
@@ -520,9 +521,8 @@ function renderFineTuningStep4(step){
     
   });
 
-
-
 }
+
 
 
 
@@ -546,5 +546,7 @@ function typewriterEffect(element, text, speed = 50, callback) {
     }
   }, speed);
 }
+
+
 
 window.addEventListener("DOMContentLoaded", loadScript);

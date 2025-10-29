@@ -308,6 +308,21 @@
   "body":[{"text":"Stage 3: Try it out!"}],
   "timer":{"duration":2000, "trigger":"stage-3A-chatbot"}
 
+},
+{
+  "trigger": "stage-3A-chatbot",
+  "order":["custom"],
+  "chatbotIntro":{
+    "text": "Hey there! 👋 Pick a question and get started.",
+    "animation": "typewriter",
+    "speed": 40
+  },
+  "chatbotQuestions":[
+    {"question": "Is this a sample question?", "answer": "I was trained on lots of data to predict what words come next."},
+    {"question":"It is indeed?", "answer":"I really do recognize text patterns."},
+    {"question":"and this too?", "answer":"I guess it might be!"}
+  ],
+  "nextButton":[{"text":"Next", "trigger":"stage-3B", "class":["stage-btn"]}]
 }
 
   ]
