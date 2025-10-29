@@ -524,7 +524,51 @@ function renderFineTuningStep4(step){
 }
 
 
+function renderStage3Chatbot(step){
+  const chatbotContainer = document.getElementById("stage3-chatbot");
+  const questionContainer = document.getElementById("stage3-chatbot-questions");
+  const chatWindow = document.getElementById("stage3-chatbot-window");
 
+  chatbotContainer.style.display = "flex";
+
+
+ 
+
+  const introMsg = document.getElementById("chatbot-intro-text");
+  chatWindow.appendChild(introMsg);
+
+  typewriterEffect(
+    introMsg,
+    step.chatbotIntro.text,
+    step.chatbotIntro.speed
+  );
+
+  const buttons = document.querySelectorAll(".stage3-question");
+
+  step.chatbotQuestions.forEach((qa,index) =>{
+    if (buttons[index]){
+      buttons[index].textContent = qa.question;
+
+      buttons[index].addEventListener("click", ()=>{
+        const userMsg = document.createElement("div");
+        userMsg.classList.add("stage3-chatbot-user-msg");
+        userMsg.classList.add("fade-in");
+        userMsg.textContent = qa.question;
+        chatWindow.appendChild(userMsg);
+
+        const botMsg = document.createElement("div");
+        botMsg.classList.add("stage3-chatbot-answer");
+        chatWindow.appendChild(botMsg);
+
+        setTimeout(()=>{
+         typewriterEffect(botMsg, qa.answer,40);
+         chatWindow.scrollTop = chatWindow.scrollHeight;
+        },500);
+      });
+      
+    }
+  })
+}
 
 
 

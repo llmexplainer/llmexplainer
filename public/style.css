@@ -606,7 +606,7 @@ button {
   display: flex;
   flex-direction: column;
   background-color: #212121;
-  padding:2rem;
+  padding:5rem;
   border-radius: 10px;
   width:90%;
   min-height: 20rem;
