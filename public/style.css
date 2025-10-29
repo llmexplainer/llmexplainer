@@ -81,6 +81,7 @@ button {
   height: auto;
   margin: 2rem auto;
   overflow-y: auto;
+  padding-bottom: 2rem;
 }
 
 .browser-content{
@@ -92,7 +93,7 @@ button {
 .browser-content, .content-zone, #generic-container, .interactive-body, .button-group{
   max-width: 100%;
   overflow-wrap: break-word;
-  word-break: break-word;
+  /* word-break: break-word; */
   white-space: normal;
   overflow: visible;
 }
@@ -177,6 +178,7 @@ button {
   padding: 1rem;
   align-items: center;
   gap: 15rem;
+  margin: 2rem;
 }
 .spacer {
   width: 10%; 
@@ -268,12 +270,13 @@ button {
 
 /* Typewriter setup */
 .typewriter {
-  display: inline-block; 
-  min-width: 1ch;      
+  display: inline; 
+  min-width: 0;      
   border-right: 2px solid #333;
-  white-space: nowrap;
-  overflow: hidden;
-  box-sizing: border-box; 
+  white-space: normal;
+  overflow: visible;
+  box-sizing: break-word; 
+  text-align: inherit;
 }
 
 .typewriter.done {
@@ -658,6 +661,7 @@ button {
   color: white;
   box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.1);
   overflow-y:auto;
+  text-align: left;
 }
 
 .stage3-chatbot-answer{
@@ -713,6 +717,13 @@ button {
     font-size: 1rem;
   }
 
+  .interactive-body{
+    padding:0.8rem;
+    font-size: 0.9rem;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
   .browser-content{
     padding: 1rem;
   }
@@ -731,6 +742,18 @@ button {
     gap:1rem;
   }
 
+  #likelihood-container{
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .likelihood-bar-wrapper{
+    width: 100%;
+}
+
+.likelihood-bar{
+  width:100%
+}
   .stage-tag{
     width: 25%;
   }
@@ -769,6 +792,17 @@ button {
     font-size: 0.9rem;
   }
 
+  .finetuning-responses{
+    flex-direction: column;
+  }
+
+  .finetuning-response{
+    width: 100%;
+  }
+
+  .finetuning-round-indicator{
+    width: 18%;
+  }
   #stage3-chatbot-questions{
     flex-direction:column;
     gap: 0.5rem;
@@ -777,7 +811,15 @@ button {
   #stage3-chatbot-window{
     padding: 1rem;
     min-height: 15rem;
+    width: 95%; 
   }
+
+  .stage3-chatbot-answer, .stage3-chatbot-user-msg{
+    max-width: 90%;
+    font-size: 0.9rem;
+  }
+
+  
 
 }
 

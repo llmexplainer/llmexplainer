@@ -589,6 +589,7 @@ function renderStage3Chatbot(step){
 function typewriterEffect(element, text, speed = 50, callback) {
   element.textContent = "";
   element.classList.add("typewriter");
+  element.style.display ="inline";
 
   let i = 0;
   const timer = setInterval(() => {
@@ -597,6 +598,7 @@ function typewriterEffect(element, text, speed = 50, callback) {
     if (i >= text.length) {
       clearInterval(timer);
       element.classList.add("done");
+      element.classList.remove("typewriter");
       if (callback) callback();
     }
   }, speed);
