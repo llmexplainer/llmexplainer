@@ -567,7 +567,17 @@ function renderStage3Chatbot(step){
       });
       
     }
-  })
+  });
+
+  if (step.nextButton) {
+    const nextBtn = document.getElementById("stage3-chatbot-next");
+    nextBtn.textContent = step.nextButton[0]["text"];
+    nextBtn.addEventListener("click", () => {
+      chatbotContainer.style.display = "none";
+      handleTrigger(step.nextButton.trigger);
+    });
+    
+  }
 }
 
 
