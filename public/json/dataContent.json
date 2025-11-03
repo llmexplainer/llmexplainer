@@ -1,0 +1,169 @@
+{
+  "DATA_TYPES": {
+    "0": {
+      "name": "informal",
+      "description": "reddit,tumblr,etc",
+      "sentences": [
+        {
+          "id": "sentence-0a",
+          "text": "Sentence 0a: This is a sample. The next token in sentence #1 is:"
+        },
+        {
+          "id": "sentence-0b",
+          "text": "Sentence 0b: This is a sample. The next token in sentence #1 is:"
+        },
+        {
+          "id": "sentence-0c",
+          "text": "Sentence 0c: This is a sample. The next token in sentence #1 is:"
+        }
+      ],
+      "sentenceLikelihoods": {
+        "sentence-0a": {
+          "TokenX": 0.5,
+          "TokenY": 0.3,
+          "TokenZ": 0.2
+        },
+        "sentence-0b": {
+          "TokenX": 0.5,
+          "TokenY": 0.3,
+          "TokenZ": 0.2
+        },
+
+        "sentence-0c": {
+          "TokenX": 0.5,
+          "TokenY": 0.3,
+          "TokenZ": 0.2
+        }
+      },
+      "personalitySlidersTxt": {
+        "h-h-h": "This is sample text with high randomness, high friendliness, and high wordiness.",
+        "h-h-l": "This is a sample text with high randomness, high friendliness, and low wordiness.",
+        "h-l-h": "This is sample text with high randomness, low friendliness, and high wordiness.",
+        "h-l-l": "This is sample text with high randomness, low friendliness, and low wordiness.",
+        "l-h-h": "This is sample text with low randomness, high friendliness, and high wordiness.",
+        "l-h-l": "This is sample text with low randomness, high friendliness, and low wordiness.",
+        "l-l-h": "This is sample text with low randomness, low friendliness, and high wordiness.",
+        "l-l-l": "This is sample text with low randomness, low friendliness, and low wordiness."
+      },
+      "chatbotResponses": {
+        "h-h-h": [
+          "This text is trained on data type 0.",
+          "This is the answer to the second question.",
+          "This is sample text with high randomness, high friendliness, and high wordiness."
+        ], 
+        "h-h-l": [
+            "This text is trained on data type 0.",
+            "This is the answer to the second question.",
+            "This is sample text with high randomness, high friendliness, and low wordiness."],
+        "h-l-h": [
+            "This text is trained on data type 0.",
+            "This is the answer to the second question.",
+            "This is sample text with high randomness, low friendliness, and high wordiness."],
+        "h-l-l": [
+            "This text is trained on data type 0.",
+            "This is the answer to the second question.",
+            "This is sample text with high randomness, low friendliness, and low wordiness."],
+        "l-h-h": [
+            "This text is trained on data type 0.",
+            "This is the answer to the second question.",
+            "This is sample text with low randomness, high friendliness, and high wordiness."],
+        "l-h-l": [
+            "This text is trained on data type 0.",
+            "This is the answer to the second question.",
+            "This is sample text with low randomness, high friendliness, and low wordiness."],
+        "l-l-h": [
+            "This text is trained on data type 0.",
+            "This is the answer to the second question.",
+            "This is sample text with low randomness, low friendliness, and high wordiness."],
+        "l-l-l": [
+            "This text is trained on data type 0.",
+            "This is the answer to the second question.",
+            "This is sample text with low randomness, low friendliness, and low wordiness."]
+      }
+    },
+
+
+
+     "1": {
+      "name": "formal",
+      "description": "EBSCO,JSTOR,etc",
+      "sentences": [
+        {
+          "id": "sentence-1a",
+          "text": "Sentence 1a: This is a sample. The next token in sentence #1 is:"
+        },
+        {
+          "id": "sentence-1b",
+          "text": "Sentence 1b: This is a sample. The next token in sentence #1 is:"
+        },
+        {
+          "id": "sentence-1c",
+          "text": "Sentence 1c: This is a sample. The next token in sentence #1 is:"
+        }
+      ],
+      "sentenceLikelihoods": {
+        "sentence-1a": {
+          "TokenX": 0.5,
+          "TokenY": 0.3,
+          "TokenZ": 0.2
+        },
+        "sentence-1b": {
+          "TokenX": 0.5,
+          "TokenY": 0.3,
+          "TokenZ": 0.2
+        },
+
+        "sentence-1c": {
+          "TokenX": 0.5,
+          "TokenY": 0.3,
+          "TokenZ": 0.2
+        }
+      },
+      "personalitySlidersTxt": {
+        "h-h-h": "This is sample text with high randomness, high friendliness, and high wordiness.",
+        "h-h-l": "This is a sample text with high randomness, high friendliness, and low wordiness.",
+        "h-l-h": "This is sample text with high randomness, low friendliness, and high wordiness.",
+        "h-l-l": "This is sample text with high randomness, low friendliness, and low wordiness.",
+        "l-h-h": "This is sample text with low randomness, high friendliness, and high wordiness.",
+        "l-h-l": "This is sample text with low randomness, high friendliness, and low wordiness.",
+        "l-l-h": "This is sample text with low randomness, low friendliness, and high wordiness.",
+        "l-l-l": "This is sample text with low randomness, low friendliness, and low wordiness."
+      },
+      "chatbotResponses": {
+        "h-h-h": [
+          "This text is trained on data type 1.",
+          "This is the answer to the second question.",
+          "This is sample text with high randomness, high friendliness, and high wordiness."
+        ], 
+        "h-h-l": [
+            "This text is trained on data type 1.",
+            "This is the answer to the second question.",
+            "This is sample text with high randomness, high friendliness, and low wordiness."],
+        "h-l-h": [
+            "This text is trained on data type 1.",
+            "This is the answer to the second question.",
+            "This is sample text with high randomness, low friendliness, and high wordiness."],
+        "h-l-l": [
+            "This text is trained on data type 1.",
+            "This is the answer to the second question.",
+            "This is sample text with high randomness, low friendliness, and low wordiness."],
+        "l-h-h": [
+            "This text is trained on data type 1.",
+            "This is the answer to the second question.",
+            "This is sample text with low randomness, high friendliness, and high wordiness."],
+        "l-h-l": [
+            "This text is trained on data type 1.",
+            "This is the answer to the second question.",
+            "This is sample text with low randomness, high friendliness, and low wordiness."],
+        "l-l-h": [
+            "This text is trained on data type 1.",
+            "This is the answer to the second question.",
+            "This is sample text with low randomness, low friendliness, and high wordiness."],
+        "l-l-l": [
+            "This text is trained on data type 1.",
+            "This is the answer to the second question.",
+            "This is sample text with low randomness, low friendliness, and low wordiness."]
+      }
+    }
+  }
+}
