@@ -35,10 +35,13 @@ function getChatbotResponses(dataType, randomness,friendliness,wordiness,questio
    
 }
 
+function getFeedbackQuestions(){
+    console.log(FEEDBACK_QUESTIONS);
+    return FEEDBACK_QUESTIONS; 
+}
 
 //helper functions needed:
 // [x] converting slider values and returning the personality code (h-l-h,h-h-h...etc.)
 // [x] getting the text in the finetuning step that's based on personality
-// [] getting chatbot answers 
-// [] loading feedback qs
-
+// [x] getting chatbot answers 
+// [x] loading feedback qs  ++ need to change in main.js, bc these are currently loading from script.js
