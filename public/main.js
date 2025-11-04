@@ -5,6 +5,7 @@ let UIData = {};
 let userDataSelection = null;
 
 const customRenderers = {
+  // "stage-1": nextButtonForDataSelection
   "training-step-1": renderTrainingStep1,
  "finetuning-step-2": renderFineTuningStep2,
  "finetuning-step-4": renderFineTuningStep4,
@@ -318,6 +319,18 @@ const t1SentenceLikelihoods = {
 };
 
 
+// function nextButtonForDataSelection() {
+//   const step = scriptByTrigger["stage-1"];
+//   const nextBtn = document.createElement("button");
+//     nextBtn.innerText = step.nextButton[0]["text"];
+//     nextBtn.classList.add(step.nextButton[0]["class"]);
+//     document.getElementById("main-container").appendChild(nextBtn);
+//     nextBtn.addEventListener("click", () => {
+//       handleTrigger(step.nextButton[0]["trigger"]);
+      
+//     })
+
+// }
 
 function renderTrainingStep1(step, container = document.getElementById("main-container")) {
   const customDiv = document.createElement("div");
