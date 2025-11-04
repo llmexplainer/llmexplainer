@@ -529,7 +529,7 @@ function renderFineTuningStep4(step){
   const output = document.getElementById("finetuning-4-generated-text");
 
   generateBtn.textContent = step.generateButtonText;
-
+  let nextBtnExists = false;
   generateBtn.addEventListener("click", () => {
     const s1 = sliderValues.slider1 ?? 50;
     const s2 = sliderValues.slider2 ?? 50;
@@ -538,15 +538,20 @@ function renderFineTuningStep4(step){
     const generatedText = `Your model sounds ${s1}% random, and ${s2}% friendly and ${s3}% wordy`;
     outputContainer.classList.add("visible");
     output.textContent = generatedText; 
-    const nextBtn = document.createElement("button");
+    
+    if (!nextBtnExists){
+      const nextBtn = document.createElement("button");
     nextBtn.innerText = step.nextButton[0]["text"];
     nextBtn.classList.add(step.nextButton[0]["class"]);
     finetuningStep4.appendChild(nextBtn);
+    nextBtnExists = true;
     nextBtn.addEventListener("click", () => {
       finetuningStep4.style.display = "none";
       handleTrigger(step.nextButton[0]["trigger"]);
       
     })
+    }
+    
 
     
   });
