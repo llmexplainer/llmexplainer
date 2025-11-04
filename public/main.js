@@ -1,3 +1,8 @@
+//TO DO: 
+//fix next button on stage 1
+// implement personality functions
+//implement chatbot functions
+
 let scriptData = [];
 let scriptByIndex = {};
 let scriptByTrigger = {};
