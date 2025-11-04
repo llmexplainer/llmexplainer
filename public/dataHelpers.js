@@ -36,7 +36,6 @@ function getChatbotResponses(dataType, randomness,friendliness,wordiness,questio
 }
 
 function getFeedbackQuestions(){
-    console.log(FEEDBACK_QUESTIONS);
     return FEEDBACK_QUESTIONS; 
 }
 

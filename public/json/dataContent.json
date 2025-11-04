@@ -169,21 +169,21 @@
 
   "FEEDBACK_QUESTIONS": [
     {
-      "question": "Question 1:",
+      "question": "Question 1?",
       "responses": [
         { "text": "This is answer 1a, which is correct."},
         { "text": "This is answer 1b, which is incorrect." }
       ]
     },
     {
-      "question": "Question 2:",
+      "question": "Question 2?",
       "responses": [
         { "text": "This is answer 2a, which is correct."},
         { "text": "This is answer 2b, which is incorrect."}
       ]
     },
     {
-      "question": "Question 3:",
+      "question": "Question 3?",
       "responses": [
         { "text": "This is answer 3a, which is correct."},
         { "text": "This is answer 3b, which is incorrect."}

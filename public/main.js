@@ -28,6 +28,7 @@ const STAGE_INFO = {
 };
 
 async function loadScript() {
+  await loadDataContent();
   try {
     const response = await fetch("json/script.json");
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
@@ -381,19 +382,24 @@ function renderFineTuningStep2(step){
 
   let currentRound = 0;
   let selectedResponse = null;
-  const rounds = step.finetuningRounds || []
-  console.log(rounds);
+  const rounds = getFeedbackQuestions() || []
+  console.log("this is what rounds looks like:",rounds);
 
 
   container.style.display = "flex";
 
   function loadRound(){
     const round = rounds[currentRound];
+    console.log("right now we are here round wise:", round, currentRound);
+    console.log(round.question);
 
     finetuningQuestion.textContent = round.question;
-    finetuningPrompt.textContent = round.prompt;
-    resp1.textContent = round.responses[0];
-    resp2.textContent = round.responses[1];
+  
+    finetuningPrompt.textContent = step.finetuningRounds[currentRound].prompt; // fix later 
+
+    console.log(round.responses, "is this a thing?");
+    resp1.textContent = round.responses[0].text;
+    resp2.textContent = round.responses[1].text;
 
     roundIndicator.textContent= `${currentRound + 1}/${rounds.length}`;
 
