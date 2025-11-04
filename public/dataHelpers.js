@@ -26,6 +26,15 @@ function getPersonalityText(dataType, randomness, friendliness, wordiness){
     return personalityText;
 }
 
+function getChatbotResponses(dataType, randomness,friendliness,wordiness,questionIndex){
+    const key= getPersonalityKey(randomness,friendliness,wordiness);
+    const responses = DATA_TYPES[dataType].chatbotResponses[key];
+     console.log(responses);
+     console.log(responses[questionIndex]);
+    return responses[questionIndex];
+   
+}
+
 
 //helper functions needed:
 // [x] converting slider values and returning the personality code (h-l-h,h-h-h...etc.)
