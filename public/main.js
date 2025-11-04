@@ -299,8 +299,14 @@ function handleTrigger(trigger, extraData = null) {
   }
   //to save training selection
   if (trigger === "choice-data" && extraData) {
-    userDataSelection = extraData;
+    if (extraData === "Data Type 1" || "Data Type 3"){
+      userDataSelection = 0; //SO DT1 = EBSCO AND DT3 = JSTOR
+    } else if (extraData === "Data Type 2" || "Data Type 4"){
+      userDataSelection = 1; //SO DT2 = REDDIT AND DT4 = TUMBLR
+    }
+
     console.log("User selected data type:", userDataSelection);
+    console.log(DATA_TYPES[userDataSelection].name);
   }
 
   renderStep(step);
@@ -395,9 +401,8 @@ function renderFineTuningStep2(step){
 
     finetuningQuestion.textContent = round.question;
   
-    finetuningPrompt.textContent = step.finetuningRounds[currentRound].prompt; // fix later 
+    finetuningPrompt.textContent = step.finetuningRounds[currentRound].prompt; 
 
-    console.log(round.responses, "is this a thing?");
     resp1.textContent = round.responses[0].text;
     resp2.textContent = round.responses[1].text;
 
