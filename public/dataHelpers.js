@@ -19,9 +19,17 @@ function getPersonalityKey(randomness,friendliness,wordiness){
     return(`${r}-${f}-${w}`)
 }
 
+function getPersonalityText(dataType, randomness, friendliness, wordiness){
+    const key= getPersonalityKey(randomness,friendliness,wordiness);
+    const personalityText = DATA_TYPES[dataType].personalitySlidersTxt[key];
+    console.log(personalityText);
+    return personalityText;
+}
+
 
 //helper functions needed:
 // [x] converting slider values and returning the personality code (h-l-h,h-h-h...etc.)
-// [] getting the text in the finetuning step that's based on personality
+// [x] getting the text in the finetuning step that's based on personality
 // [] getting chatbot answers 
 // [] loading feedback qs
+
