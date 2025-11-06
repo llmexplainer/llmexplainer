@@ -1,4 +1,4 @@
-//TO DO: 
+//TO DO:
 //fix next button on stage 1
 // implement personality functions
 //implement chatbot functions
@@ -8,34 +8,34 @@ let scriptByIndex = {};
 let scriptByTrigger = {};
 let UIData = {};
 let userDataSelection = null;
-let userPersonality = {     // default
+let userPersonality = {
+  // default
   randomness: 50,
   friendliness: 50,
-  wordiness: 50
+  wordiness: 50,
 };
 
 const customRenderers = {
   // "stage-1": nextButtonForDataSelection
   "training-step-1": renderTrainingStep1,
- "finetuning-step-2": renderFineTuningStep2,
- "finetuning-step-4": renderFineTuningStep4,
- "stage-3A-chatbot": renderStage3Chatbot,
+  "finetuning-step-2": renderFineTuningStep2,
+  "finetuning-step-4": renderFineTuningStep4,
+  "stage-3A-chatbot": renderStage3Chatbot,
 };
 
 let currentProgress = 0;
 const PROGRESS_MILESTONES = {
   "stage-1": 0,
-  "choice-data":10,
-  "training-step-1":20,
-  "finetuning-step-1":40,
-//add and edit as we go
-
-}; 
+  "choice-data": 10,
+  "training-step-1": 20,
+  "finetuning-step-1": 40,
+  //add and edit as we go
+};
 
 const STAGE_INFO = {
-  "stage-1": { name: "Training", color: "#c9fdc4ff" },           
-  "finetuning-loader": { name: "Fine-tuning", color: "#d1d7faff" },  
-  "stage-3A-chatbot": { name: "Deployment", color: "#fedaa0ff" },   
+  "stage-1": { name: "Training", color: "#c9fdc4ff" },
+  "finetuning-loader": { name: "Fine-tuning", color: "#d1d7faff" },
+  "stage-3A-chatbot": { name: "Deployment", color: "#fedaa0ff" },
 };
 
 async function loadScript() {
@@ -76,31 +76,29 @@ function populateUI(UIData) {
   document.querySelector("#navbar-lang").textContent = UIData.navbar.language;
 }
 
-function updateProgressBar(trigger){
+function updateProgressBar(trigger) {
   const progressFill = document.getElementById("progress-fill");
   const progressText = document.getElementById("progress-text");
 
-  if (PROGRESS_MILESTONES.hasOwnProperty(trigger)){
+  if (PROGRESS_MILESTONES.hasOwnProperty(trigger)) {
     currentProgress = PROGRESS_MILESTONES[trigger];
     progressFill.style.width = `${currentProgress}%`;
     progressText.textContent = `${currentProgress}%`;
   }
 }
 
-function showProgressBar(){
+function showProgressBar() {
   const progressBar = document.getElementById("progress-bar");
   progressBar.style.display = "flex";
 }
 
-function hideProgressBar(){
+function hideProgressBar() {
   const progressBar = document.getElementById("progress-bar");
   progressBar.style.display = "none";
 }
 
-
 function updateStageTag(trigger) {
   const stageTag = document.getElementById("stage-tag");
-
 
   if (STAGE_INFO.hasOwnProperty(trigger)) {
     const stage = STAGE_INFO[trigger];
@@ -109,7 +107,7 @@ function updateStageTag(trigger) {
   }
 }
 
-function showStageTag(){
+function showStageTag() {
   const stageTag = document.getElementById("stage-tag");
   stageTag.style.display = "flex";
 }
@@ -119,35 +117,34 @@ function renderStep(step) {
   const mainContainer = document.getElementById("main-container");
   let genericContainer = document.getElementById("generic-container");
 
-
   //start step, intro container
   if (step.index === "1") {
     document.querySelector(".navbar").style.display = "flex";
     currentContainer = document.getElementById("intro-container");
     currentContainer.style.display = "flex";
     document.getElementById("main-container").style.display = "none";
-     hideProgressBar();
+    hideProgressBar();
   } else {
     //browser styling made visible, navbar hidden
     document.querySelector(".browser-window").style.visibility = "visible";
-     document.querySelector(".browser-window").style.display = "flex";
+    document.querySelector(".browser-window").style.display = "flex";
     document.querySelector(".navbar").style.display = "none";
     document.getElementById("intro-container").innerHTML = "";
     document.getElementById("intro-container").style.display = "none";
     currentContainer = genericContainer;
     mainContainer.style.visibility = "visible";
     mainContainer.style.display = "flex";
-  
   }
 
-  if (step.trigger && PROGRESS_MILESTONES.hasOwnProperty(step.trigger)){
+  if (step.trigger && PROGRESS_MILESTONES.hasOwnProperty(step.trigger)) {
     showProgressBar();
-    updateProgressBar(step.trigger);  }
+    updateProgressBar(step.trigger);
+  }
 
-    if (step.trigger && STAGE_INFO.hasOwnProperty(step.trigger)) {
-      showStageTag();
-      updateStageTag(step.trigger);
-    }
+  if (step.trigger && STAGE_INFO.hasOwnProperty(step.trigger)) {
+    showStageTag();
+    updateStageTag(step.trigger);
+  }
 
   currentContainer.innerHTML = "";
   currentContainer.className = "";
@@ -187,11 +184,8 @@ function renderStep(step) {
           // they exist in an array in the element key-value pair in the json. eg: {"text": "llms xyz", "class":["fade-in","another-class"]}
           if (p.class) {
             p.class.forEach((cls) => para.classList.add(cls));
-           
           }
           if (p.type) para.classList.add(`text-${p.type}`);
-          
-         
 
           if (p.animation === "typewriter") {
             //delay was kind of a patchy addition, if i didnt want the typing to start immediately. this is also in ms.
@@ -262,6 +256,10 @@ function renderStep(step) {
           if (b.class) {
             b.class.forEach((cls) => btn.classList.add(cls));
           }
+          if (b.disabled) {
+            btn.disabled = true;
+            btn.style.opacity = "0.5"; // Visual indicator
+          }
 
           if (b.delay) {
             console.log("yeahyeah");
@@ -272,7 +270,19 @@ function renderStep(step) {
           btn.addEventListener("click", () => {
             // If it's a data type selection step, pass the button text as extraData
             if (b.trigger === "choice-data") {
-              handleTrigger(b.trigger, b.text);
+              userDataSelection = b.dataValue;
+              const dataButtons =
+                currentContainer.querySelectorAll(".button-choice");
+              dataButtons.forEach((dataBtn) =>
+                dataBtn.classList.remove("selected")
+              );
+
+              btn.classList.add("selected");
+              const nextBtn = document.getElementById("data-next-btn");
+              if (nextBtn) {
+                nextBtn.disabled = false;
+                nextBtn.style.opacity = "1";
+              }
             } else {
               handleTrigger(b.trigger);
             }
@@ -297,8 +307,6 @@ function renderStep(step) {
       contentRenderers[contentType]();
     }
   });
-
-  
 }
 
 function handleTrigger(trigger, extraData = null) {
@@ -309,24 +317,18 @@ function handleTrigger(trigger, extraData = null) {
     return;
   }
   //to save training selection
-  if (trigger === "choice-data" && extraData) {
-  if (extraData === "Data Type 1" || extraData === "Data Type 3"){
-    userDataSelection = 0;
-  } else if (extraData === "Data Type 2" || extraData === "Data Type 4"){
-    userDataSelection = 1;
-  }
-  console.log("User selected data type:", userDataSelection);
-  console.log(DATA_TYPES[userDataSelection].name);
-}
+  // if (trigger === "choice-data" && extraData) {
+  //   if (extraData === "Data Type 1" || extraData === "Data Type 3") {
+  //     userDataSelection = 0;
+  //   } else if (extraData === "Data Type 2" || extraData === "Data Type 4") {
+  //     userDataSelection = 1;
+  //   }
+  //   console.log("User selected data type:", userDataSelection);
+  //   console.log(DATA_TYPES[userDataSelection].name);
+  // }
 
   renderStep(step);
 }
-
-const t1SentenceLikelihoods = {
-  "beach-sentence": { family: 0.7, pet: 0.2, sandcastle: 0.1 },
-  "concert-sentence": { danced: 0.6, ate: 0.1, cried: 0.3 },
-};
-
 
 // function nextButtonForDataSelection() {
 //   const step = scriptByTrigger["stage-1"];
@@ -336,22 +338,28 @@ const t1SentenceLikelihoods = {
 //     document.getElementById("main-container").appendChild(nextBtn);
 //     nextBtn.addEventListener("click", () => {
 //       handleTrigger(step.nextButton[0]["trigger"]);
-      
+
 //     })
 
 // }
 
-function renderTrainingStep1(step, container = document.getElementById("main-container")) {
+function renderTrainingStep1(
+  step,
+  container = document.getElementById("main-container")
+) {
   const customDiv = document.createElement("div");
   customDiv.classList.add("training-step-1");
 
   const selectDropDown = document.createElement("select");
   selectDropDown.id = "training-1-select";
 
-  step.autocompleteOptions.forEach((opt) => {
+  const dataType = DATA_TYPES[userDataSelection];
+  const sentences = dataType.sentences;
+
+  sentences.forEach((sentenceObj) => {
     const option = document.createElement("option");
-    option.value = opt.trigger;
-    option.textContent = opt.sentence;
+    option.value = sentenceObj.id; //?
+    option.textContent = sentenceObj.text;
     selectDropDown.appendChild(option);
   });
 
@@ -362,10 +370,10 @@ function renderTrainingStep1(step, container = document.getElementById("main-con
   customDiv.appendChild(likelihoodContainer);
 
   selectDropDown.addEventListener("change", (e) => {
-    const selectedTrigger = e.target.value;
+    const selectedId = e.target.value;
     likelihoodContainer.innerHTML = "";
 
-    const likelihoods = t1SentenceLikelihoods[selectedTrigger];
+    const likelihoods = dataType.sentenceLikelihoods[selectedId];
 
     for (const [word, prob] of Object.entries(likelihoods)) {
       const wrapper = document.createElement("div");
@@ -398,7 +406,7 @@ function renderTrainingStep1(step, container = document.getElementById("main-con
   container.appendChild(customDiv);
 }
 
-function renderFineTuningStep2(step){
+function renderFineTuningStep2(step) {
   const container = document.getElementById("finetuning-container");
   const finetuningQuestion = document.getElementById("finetuning-question");
   const finetuningPrompt = document.getElementById("finetuning-prompt");
@@ -410,31 +418,29 @@ function renderFineTuningStep2(step){
 
   let currentRound = 0;
   let selectedResponse = null;
-  const rounds = getFeedbackQuestions() || []
-  console.log("this is what rounds looks like:",rounds);
-
+  const rounds = getFeedbackQuestions() || [];
+  console.log("this is what rounds looks like:", rounds);
 
   container.style.display = "flex";
 
-  function loadRound(){
+  function loadRound() {
     const round = rounds[currentRound];
     console.log("right now we are here round wise:", round, currentRound);
     console.log(round.question);
 
     finetuningQuestion.textContent = round.question;
-  
-    finetuningPrompt.textContent = step.finetuningRounds[currentRound].prompt; 
+
+    finetuningPrompt.textContent = step.finetuningRounds[currentRound].prompt;
 
     resp1.textContent = round.responses[0].text;
     resp2.textContent = round.responses[1].text;
 
-    roundIndicator.textContent= `${currentRound + 1}/${rounds.length}`;
+    roundIndicator.textContent = `${currentRound + 1}/${rounds.length}`;
 
     selectedResponse = null;
     nextBtn.disabled = true;
-    errorMsg.style.display ="none";
-    [resp1,resp2].forEach((btn) => btn.classList.remove("selected"));
-
+    errorMsg.style.display = "none";
+    [resp1, resp2].forEach((btn) => btn.classList.remove("selected"));
   }
 
   [resp1, resp2].forEach((btn) => {
@@ -446,7 +452,7 @@ function renderFineTuningStep2(step){
       errorMsg.style.display = "none";
     });
   });
-nextBtn.textContent = step.nextButton || "Next";
+  nextBtn.textContent = step.nextButton || "Next";
 
   nextBtn.addEventListener("click", () => {
     if (!selectedResponse) {
@@ -468,43 +474,40 @@ nextBtn.textContent = step.nextButton || "Next";
   loadRound();
 }
 
-
-function renderFineTuningStep4(step){
-
+function renderFineTuningStep4(step) {
   const finetuningStep4 = document.getElementById("finetuning-step-4");
-  finetuningStep4.style.display = "flex"; 
+  finetuningStep4.style.display = "flex";
 
   const sliderLabels = step.sliderLabels;
 
-  sliderLabels.forEach((label, i) =>{
+  sliderLabels.forEach((label, i) => {
     const sliderLabel = document.getElementById(`slider-label-${i + 1}`);
-    if (sliderLabel){
+    if (sliderLabel) {
       sliderLabel.textContent = label;
     }
   });
 
-
   //slider drag
   const sliders = document.querySelectorAll(".slider");
-  const sliderValues ={};
+  const sliderValues = {};
 
-  sliders.forEach((slider,i) => {
+  sliders.forEach((slider, i) => {
     const fill = slider.querySelector(".slider-fill");
     // const currentValue = fill.querySelector(".slider-value");
 
-    let isDragging = false; 
+    let isDragging = false;
 
     const updateSlider = (e) => {
       const rect = slider.getBoundingClientRect();
       const x = e.clientX ?? e.touches[0].clientX;
 
-      let percent = ((x-rect.left) / rect.width) *100; 
+      let percent = ((x - rect.left) / rect.width) * 100;
       percent = Math.max(0, Math.min(100, percent));
-      fill.style.width = `${percent}%`; 
-      // currentValue.textContent = `${Math.round(percent)}%`; 
-      sliderValues[`slider${i+1}`] = Math.round(percent); 
+      fill.style.width = `${percent}%`;
+      // currentValue.textContent = `${Math.round(percent)}%`;
+      sliderValues[`slider${i + 1}`] = Math.round(percent);
       console.log(sliderValues);
-    }; 
+    };
 
     slider.addEventListener("mousedown", (e) => {
       isDragging = true;
@@ -529,7 +532,9 @@ function renderFineTuningStep4(step){
   });
 
   const generateBtn = document.getElementById("generate-txt-btn");
-  const outputContainer = document.getElementById("finetuning-4-generated-text-container");
+  const outputContainer = document.getElementById(
+    "finetuning-4-generated-text-container"
+  );
   const output = document.getElementById("finetuning-4-generated-text");
 
   generateBtn.textContent = step.generateButtonText;
@@ -537,64 +542,51 @@ function renderFineTuningStep4(step){
   generateBtn.addEventListener("click", () => {
     const s1 = sliderValues.slider1 ?? 50;
     const s2 = sliderValues.slider2 ?? 50;
-    const s3 = sliderValues.slider3 ?? 50; 
+    const s3 = sliderValues.slider3 ?? 50;
 
     userPersonality = {
       randomness: s1,
       friendliness: s2,
-      wordiness: s3
-    }
+      wordiness: s3,
+    };
 
-    const generatedText = getPersonalityText(userDataSelection, s1,s2,s3);
+    const generatedText = getPersonalityText(userDataSelection, s1, s2, s3);
     outputContainer.classList.add("visible");
-    output.textContent = generatedText; 
-    
-    if (!nextBtnExists){
+    output.textContent = generatedText;
+
+    if (!nextBtnExists) {
       const nextBtn = document.createElement("button");
-    nextBtn.innerText = step.nextButton[0]["text"];
-    nextBtn.classList.add(step.nextButton[0]["class"]);
-    finetuningStep4.appendChild(nextBtn);
-    nextBtnExists = true;
-    nextBtn.addEventListener("click", () => {
-      finetuningStep4.style.display = "none";
-      handleTrigger(step.nextButton[0]["trigger"]);
-      
-    })
+      nextBtn.innerText = step.nextButton[0]["text"];
+      nextBtn.classList.add(step.nextButton[0]["class"]);
+      finetuningStep4.appendChild(nextBtn);
+      nextBtnExists = true;
+      nextBtn.addEventListener("click", () => {
+        finetuningStep4.style.display = "none";
+        handleTrigger(step.nextButton[0]["trigger"]);
+      });
     }
-    
-
-    
   });
-
 }
 
-
-function renderStage3Chatbot(step){
+function renderStage3Chatbot(step) {
   const chatbotContainer = document.getElementById("stage3-chatbot");
   const questionContainer = document.getElementById("stage3-chatbot-questions");
   const chatWindow = document.getElementById("stage3-chatbot-window");
 
   chatbotContainer.style.display = "flex";
 
-
- 
-
   const introMsg = document.getElementById("chatbot-intro-text");
   chatWindow.appendChild(introMsg);
 
-  typewriterEffect(
-    introMsg,
-    step.chatbotIntro.text,
-    step.chatbotIntro.speed
-  );
+  typewriterEffect(introMsg, step.chatbotIntro.text, step.chatbotIntro.speed);
 
   const buttons = document.querySelectorAll(".stage3-question");
 
-  step.chatbotQuestions.forEach((qa,index) =>{
-    if (buttons[index]){
+  step.chatbotQuestions.forEach((qa, index) => {
+    if (buttons[index]) {
       buttons[index].textContent = qa.question;
 
-      buttons[index].addEventListener("click", ()=>{
+      buttons[index].addEventListener("click", () => {
         const userMsg = document.createElement("div");
         userMsg.classList.add("stage3-chatbot-user-msg");
         userMsg.classList.add("fade-in");
@@ -605,12 +597,19 @@ function renderStage3Chatbot(step){
         botMsg.classList.add("stage3-chatbot-answer");
         chatWindow.appendChild(botMsg);
 
-        setTimeout(()=>{
-         typewriterEffect(botMsg, qa.answer,40);
-         chatWindow.scrollTop = chatWindow.scrollHeight;
-        },500);
+        const answer = getChatbotResponses(
+          userDataSelection,
+          userPersonality.randomness,
+          userPersonality.friendliness,
+          userPersonality.wordiness,
+          index
+        );
+
+        setTimeout(() => {
+          typewriterEffect(botMsg, answer, 40);
+          chatWindow.scrollTop = chatWindow.scrollHeight;
+        }, 500);
       });
-      
     }
   });
 
@@ -621,19 +620,13 @@ function renderStage3Chatbot(step){
       chatbotContainer.style.display = "none";
       handleTrigger(step.nextButton.trigger);
     });
-    
   }
 }
-
-
-
-
-
 
 function typewriterEffect(element, text, speed = 50, callback) {
   element.textContent = "";
   element.classList.add("typewriter");
-  element.style.display ="inline";
+  element.style.display = "inline";
 
   let i = 0;
   const timer = setInterval(() => {
@@ -647,7 +640,5 @@ function typewriterEffect(element, text, speed = 50, callback) {
     }
   }, speed);
 }
-
-
 
 window.addEventListener("DOMContentLoaded", loadScript);

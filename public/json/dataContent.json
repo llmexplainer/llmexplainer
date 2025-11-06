@@ -24,15 +24,15 @@
           "TokenZ": 0.2
         },
         "sentence-0b": {
-          "TokenX": 0.5,
-          "TokenY": 0.3,
+          "TokenX": 0.3,
+          "TokenY": 0.5,
           "TokenZ": 0.2
         },
 
         "sentence-0c": {
-          "TokenX": 0.5,
+          "TokenX": 0.2,
           "TokenY": 0.3,
-          "TokenZ": 0.2
+          "TokenZ": 0.5
         }
       },
       "personalitySlidersTxt": {
@@ -108,15 +108,15 @@
           "TokenZ": 0.2
         },
         "sentence-1b": {
-          "TokenX": 0.5,
-          "TokenY": 0.3,
-          "TokenZ": 0.2
+          "TokenX": 0.2,
+          "TokenY": 0.5,
+          "TokenZ": 0.3
         },
 
         "sentence-1c": {
-          "TokenX": 0.5,
-          "TokenY": 0.3,
-          "TokenZ": 0.2
+          "TokenX": 0.3,
+          "TokenY": 0.2,
+          "TokenZ": 0.5
         }
       },
       "personalitySlidersTxt": {

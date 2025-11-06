@@ -1,7 +1,8 @@
-
 {
-  "comments": {"what's going on": "honestly idk, but think of all the elements having a bunch of values corresponding to each key which specificy the content, additional classes, potential delay, and so on.",
-"note":"pay attention to how classes are added, some are in arrays for example."},
+  "comments": {
+    "what's going on": "honestly idk, but think of all the elements having a bunch of values corresponding to each key which specificy the content, additional classes, potential delay, and so on.",
+    "note": "pay attention to how classes are added, some are in arrays for example."
+  },
 
   "ui": {
     "_comment": "to separate static elements from script",
@@ -32,26 +33,48 @@
       "order": ["body", "interactiveBody", "buttons"],
       "body": [
         {
-          "text": "Complex chatbots, or \"conversational agents\" such as ChatGPT, Claude, or DeepSeek, are often powered by large language models (LLMs).", "class":["fade-in"]
+          "text": "Complex chatbots, or \"conversational agents\" such as ChatGPT, Claude, or DeepSeek, are often powered by large language models (LLMs).",
+          "class": ["fade-in"]
         },
         {
-          "text": "A \"language model\" is a piece of software that is trained to predict language sequences and generate text responses.", "class":["fade-in-delayed"]
+          "text": "A \"language model\" is a piece of software that is trained to predict language sequences and generate text responses.",
+          "class": ["fade-in-delayed"]
         }
       ],
       "interactiveBody": [
         {
           "text": " Autocomplete, for example, is a language model that predicts what word or phrase is most statistically likely to be used _____________",
           "animation": "typewriter",
-          "speed":50,
+          "speed": 50,
           "delay": 900
         }
       ],
       "interactiveBodyClass": ["delayed-text"],
       "buttons": [
-        { "text": "next", "trigger": "choice-next","class": ["button-stagger-1"], "delay": "7.0s"},
-        { "text": "now", "trigger": "choice-now", "class": ["button-stagger-2"], "delay": "7.0s" },
-        { "text": "correctly", "trigger": "choice-correctly", "class": ["button-stagger-3"], "delay": "7.0s" },
-        { "text": "!", "trigger": "choice-!", "class": ["button-stagger-4"],"delay": "7.0s" }
+        {
+          "text": "next",
+          "trigger": "choice-next",
+          "class": ["button-stagger-1"],
+          "delay": "7.0s"
+        },
+        {
+          "text": "now",
+          "trigger": "choice-now",
+          "class": ["button-stagger-2"],
+          "delay": "7.0s"
+        },
+        {
+          "text": "correctly",
+          "trigger": "choice-correctly",
+          "class": ["button-stagger-3"],
+          "delay": "7.0s"
+        },
+        {
+          "text": "!",
+          "trigger": "choice-!",
+          "class": ["button-stagger-4"],
+          "delay": "7.0s"
+        }
       ],
       "__comment": "so triggers can also point to an indexed step"
     },
@@ -70,11 +93,11 @@
       "interactiveBody": [
         {
           "text": " Autocomplete, for example, is a language model that predicts what word or phrase is most statistically likely to be used"
-        }, 
+        },
         {
           "text": "next.",
           "animation": "typewriter",
-          "speed":80,
+          "speed": 80,
           "delay": 400
         }
       ],
@@ -82,7 +105,7 @@
       "buttons": [
         {
           "text": "STAGE 1: Train a language model",
-          "class": ["stage-btn","fade-in-delayed"],
+          "class": ["stage-btn", "fade-in-delayed"],
           "trigger": "stage-1-loader"
         }
       ]
@@ -100,13 +123,13 @@
         }
       ],
       "interactiveBody": [
-          {
+        {
           "text": " Autocomplete, for example, is a language model that predicts what word or phrase is most statistically likely to be used"
-        }, 
+        },
         {
           "text": "now.",
           "animation": "typewriter",
-          "speed":80,
+          "speed": 80,
           "delay": 400
         }
       ],
@@ -114,7 +137,7 @@
       "buttons": [
         {
           "text": "STAGE 1: Train a language model",
-            "class":["stage-btn", "fade-in-delayed"] ,
+          "class": ["stage-btn", "fade-in-delayed"],
           "trigger": "stage-1-loader"
         }
       ]
@@ -131,23 +154,22 @@
         }
       ],
       "interactiveBody": [
-          {
+        {
           "text": " Autocomplete, for example, is a language model that predicts what word or phrase is most statistically likely to be used"
-        }, 
+        },
         {
           "text": "correctly",
           "animation": "typewriter",
-          "speed":80,
+          "speed": 80,
           "delay": 400
         }
-        
       ],
 
       "interactiveBodyClass": ["continuous-text", "delayed-text"],
       "buttons": [
         {
           "text": "STAGE 1: Train a language model",
-          "class":["stage-btn", "fade-in-delayed"],
+          "class": ["stage-btn", "fade-in-delayed"],
           "trigger": "stage-1-loader"
         }
       ]
@@ -165,13 +187,13 @@
         }
       ],
       "interactiveBody": [
-          {
+        {
           "text": " Autocomplete, for example, is a language model that predicts what word or phrase is most statistically likely to be used"
-        }, 
+        },
         {
           "text": "!",
           "animation": "typewriter",
-          "speed":80,
+          "speed": 80,
           "delay": 400
         }
       ],
@@ -179,152 +201,256 @@
       "buttons": [
         {
           "text": "STAGE 1: Train a language model",
-          "class":["stage-btn", "fade-in-delayed"],
+          "class": ["stage-btn", "fade-in-delayed"],
           "trigger": "stage-1-loader"
         }
       ]
     },
 
     {
-        "trigger": "stage-1-loader",
-        "body": [{"text":"Stage 1: Training", "class":["transition-title"]}],
-        "timer":{"duration":2000, "trigger":"stage-1"}
-
+      "trigger": "stage-1-loader",
+      "body": [{ "text": "Stage 1: Training", "class": ["transition-title"] }],
+      "timer": { "duration": 2000, "trigger": "stage-1" }
     },
     {
-        "trigger":"stage-1",
-        "index": "3",
-        "order": ["body", "buttons", "interactiveBody"],
-        "body":[
-          {"text":"The first thing you’ll need to build a language model is training data, or large bodies of text that a language model looks for patterns in, and produces text based on. The larger the data, the more complex the model's ability to produce appropriate text: that's the large in large language model (LLM)."},
-          {"text": "The internet provides a large source of text data, like social media sites, blogs, digital books, or research papers. Select your model's training data below:"}],
-        "buttons": [
-        { "text": "Data Type 1", "trigger": "choice-data","class": ["button-choice"], "delay": "1.0s"},
-        { "text": "Data Type 2", "trigger": "choice-data", "class": ["button-choice"], "delay": "1.0s" },
-        { "text": "Data Type 3", "trigger": "choice-data", "class": ["button-choice"], "delay": "1.0s" },
-        { "text": "Data Type 4", "trigger": "choice-data", "class": ["button-choice"],"delay": "1.0s" }
+      "trigger": "stage-1",
+      "index": "3",
+      "order": ["body", "buttons", "interactiveBody"],
+      "body": [
+        {
+          "text": "The first thing you’ll need to build a language model is training data, or large bodies of text that a language model looks for patterns in, and produces text based on. The larger the data, the more complex the model's ability to produce appropriate text: that's the large in large language model (LLM)."
+        },
+        {
+          "text": "The internet provides a large source of text data, like social media sites, blogs, digital books, or research papers. Select your model's training data below:"
+        }
+      ],
+      "buttons": [
+        {
+          "text": "Data Type 1",
+          "trigger": "choice-data",
+          "class": ["button-choice"],
+          "dataValue": 0,
+          "delay": "1.0s"
+        },
+        {
+          "text": "Data Type 2",
+          "trigger": "choice-data",
+          "class": ["button-choice"],
+          "dataValue": 0,
+          "delay": "1.0s"
+        },
+        {
+          "text": "Data Type 3",
+          "trigger": "choice-data",
+          "class": ["button-choice"],
+          "dataValue": 1,
+          "delay": "1.0s"
+        },
+        {
+          "text": "Data Type 4",
+          "trigger": "choice-data",
+          "class": ["button-choice"],
+          "dataValue": 1,
+          "delay": "1.0s"
+        },
+        {
+          "text": "Next",
+          "trigger": "data-training-loader",
+          "class": ["stage-btn"],
+          "delay": "2.0s",
+          "disabled": true,
+          "id": "data-next-btn"
+        }
       ]
     },
     {
-        "trigger":"choice-data",
-        "order": ["body", "buttons", "interactiveBody"],
-        "body":[
-          {"text":"The first thing you’ll need to build a language model is training data, or large bodies of text that a language model looks for patterns in, and produces text based on. The larger the data, the more complex the model's ability to produce appropriate text: that's the large in large language model (LLM)."},
-          {"text": "The internet provides a large source of text data, like social media sites, blogs, digital books, or research papers. Select your model's training data below:"}],
-        "buttons": [
-        { "text": "Next", "trigger": "data-training-loader", "class": ["stage-btn"],"delay": "1.0s" }
+      "trigger": "choice-data",
+      "order": ["body", "buttons", "interactiveBody"],
+      "body": [
+        {
+          "text": "The first thing you’ll need to build a language model is training data, or large bodies of text that a language model looks for patterns in, and produces text based on. The larger the data, the more complex the model's ability to produce appropriate text: that's the large in large language model (LLM)."
+        },
+        {
+          "text": "The internet provides a large source of text data, like social media sites, blogs, digital books, or research papers. Select your model's training data below:"
+        }
+      ],
+      "buttons": [
+        {
+          "text": "Next",
+          "trigger": "data-training-loader",
+          "class": ["stage-btn"],
+          "delay": "1.0s"
+        }
       ]
     },
-     {
-        "trigger": "data-training-loader",
-        "body": [{"text":"Going from massive data to a working model requires multiple stages of development which use extensive computing power.", "class":["transition-title"]}
-        ],
-        "timer":{"duration":2000, "trigger":"data-prob"}
+    {
+      "trigger": "data-training-loader",
+      "body": [
+        {
+          "text": "Going from massive data to a working model requires multiple stages of development which use extensive computing power.",
+          "class": ["transition-title"]
+        }
+      ],
+      "timer": { "duration": 2000, "trigger": "data-prob" }
     },
-       {
-        "trigger": "data-prob",
-        "body": [{"text":"Are we showing data or smth here? Confused"}],
-        "timer":{"duration":2000, "trigger":"training-step-1"}
+    {
+      "trigger": "data-prob",
+      "body": [{ "text": "Are we showing data or smth here? Confused" }],
+      "timer": { "duration": 2000, "trigger": "training-step-1" }
     },
     {
       "trigger": "training-step-1",
-      "order": ["body","custom","buttons"],
-      "body": [{"text":"Based on your data, the model can estimate the probability of a character, word, or sequence of words occurring in text, based on how commonly it occurred in [data source], and generates new text accordingly. \nPick a sentence, and see what word is most likely to come next."}, {"text":"Select a sentence to complete:"}],
-      "buttons":[{"text": "continue training", "trigger":"training-step-2","class":["stage-btn"]}],
-      "autocompleteOptions": [{"sentence": "At the beach, I played with my ____",
-    "trigger": "beach-sentence"},
-    {"sentence":"At the concert, I ____", "trigger":"concert-sentence"} ]
+      "order": ["body", "custom", "buttons"],
+      "body": [
+        {
+          "text": "Based on your data, the model can estimate the probability of a character, word, or sequence of words occurring in text, based on how commonly it occurred in [data source], and generates new text accordingly. \nPick a sentence, and see what word is most likely to come next."
+        },
+        { "text": "Select a sentence to complete:" }
+      ],
+      "buttons": [
+        {
+          "text": "continue training",
+          "trigger": "training-step-2",
+          "class": ["stage-btn"]
+        }
+      ],
+      "autocompleteOptions": [
+        {
+          "sentence": "At the beach, I played with my ____",
+          "trigger": "beach-sentence"
+        },
+        { "sentence": "At the concert, I ____", "trigger": "concert-sentence" }
+      ]
     },
 
     {
-      "trigger":"training-step-2",
-      "body":[{"text":"By acquiring information and learning from existing text patterns, a language model learns to ramble about a topic."},{"text":"For example, if you ask: <span class='text-orange'>What is your first name?</span>" },{"text":"Based on what question typically occurs next in empty forms online, it may respond with: <span class='text-red'>What is your last name?</span>"},{"text":"This is where finetuning comes in, to turn the model from sounding like a random text generator to a realistic assistant."}],
-      "buttons":[{"text": "STAGE 2: Fine tuning", "trigger":"finetuning-loader","class":["stage-btn"]}]
-      
+      "trigger": "training-step-2",
+      "body": [
+        {
+          "text": "By acquiring information and learning from existing text patterns, a language model learns to ramble about a topic."
+        },
+        {
+          "text": "For example, if you ask: <span class='text-orange'>What is your first name?</span>"
+        },
+        {
+          "text": "Based on what question typically occurs next in empty forms online, it may respond with: <span class='text-red'>What is your last name?</span>"
+        },
+        {
+          "text": "This is where finetuning comes in, to turn the model from sounding like a random text generator to a realistic assistant."
+        }
+      ],
+      "buttons": [
+        {
+          "text": "STAGE 2: Fine tuning",
+          "trigger": "finetuning-loader",
+          "class": ["stage-btn"]
+        }
+      ]
     },
     {
-
-      "trigger":"finetuning-loader",
-      "body":[{"text":"Stage 2: Post-training"}],
-      "timer":{"duration":2000,"trigger":"finetuning-step-1"}
+      "trigger": "finetuning-loader",
+      "body": [{ "text": "Stage 2: Post-training" }],
+      "timer": { "duration": 2000, "trigger": "finetuning-step-1" }
     },
 
     {
-      "trigger":"finetuning-step-1",
-      "body":[{"text":"To go from a language model to a chatbot, you can provide high-quality instructions and human feedback, like yours."}, {"text":"You will see the same question with two different answers generated by the model, and pick which answer is better. Typically, the chatbot learns patterns for what makes a good response from thousands of these choices made by humans. In the next slide, you can make a few yourself:"}],
-      "buttons":[{"text":"Give Feedback", "trigger":"finetuning-step-2"}]
-
+      "trigger": "finetuning-step-1",
+      "body": [
+        {
+          "text": "To go from a language model to a chatbot, you can provide high-quality instructions and human feedback, like yours."
+        },
+        {
+          "text": "You will see the same question with two different answers generated by the model, and pick which answer is better. Typically, the chatbot learns patterns for what makes a good response from thousands of these choices made by humans. In the next slide, you can make a few yourself:"
+        }
+      ],
+      "buttons": [{ "text": "Give Feedback", "trigger": "finetuning-step-2" }]
     },
     {
-      "trigger":"finetuning-step-2",
-      "order":["custom"],
-      "finetuningRounds":[
+      "trigger": "finetuning-step-2",
+      "order": ["custom"],
+      "finetuningRounds": [
         {
           "question": "this is a sample question lorem ipsum?",
-          "prompt":"Please click on the response you prefer",
-          "responses":[
+          "prompt": "Please click on the response you prefer",
+          "responses": [
             "Lorem ipsum dolor sit amet consectetur adipiscing elit quisque faucibus ex sapien vitae pellentesque sem placerat in id cursus mi pretium tellus duis convallis tempus.",
             "Lorem ipsum dolor sit amet consectetur adipiscing elit quisque faucibus ex sapien vitae pellentesque sem placerat in id cursus mi pretium tellus duis convallis tempus."
           ]
         },
         {
           "question": "this is a sample question lorem ipsum?",
-          "prompt":"Please click on the response you prefer",
-          "responses":[
+          "prompt": "Please click on the response you prefer",
+          "responses": [
             "Lorem ipsum dolor sit amet consectetur adipiscing elit quisque faucibus ex sapien vitae pellentesque sem placerat in id cursus mi pretium tellus duis convallis tempus.",
             "Lorem ipsum dolor sit amet consectetur adipiscing elit quisque faucibus ex sapien vitae pellentesque sem placerat in id cursus mi pretium tellus duis convallis tempus."
           ]
         },
         {
           "question": "this is a sample question lorem ipsum?",
-          "prompt":"Please click on the response you prefer",
-          "responses":[
+          "prompt": "Please click on the response you prefer",
+          "responses": [
             "Lorem ipsum dolor sit amet consectetur adipiscing elit quisque faucibus ex sapien vitae pellentesque sem placerat in id cursus mi pretium tellus duis convallis tempus.",
             "Lorem ipsum dolor sit amet consectetur adipiscing elit quisque faucibus ex sapien vitae pellentesque sem placerat in id cursus mi pretium tellus duis convallis tempus."
           ]
         }
-        
       ],
-      "nextButton":"Next",
+      "nextButton": "Next",
       "finalTrigger": "finetuning-step-3"
-     
     },
     {
-      "trigger":"finetuning-step-3",
-      "body":[{"text":"In this final step, you can craft your chatbot's \"personality,\" as in decide how it responds to questions. It can sound more like how your friend writes, or your teacher, or your boss. But remember, the underlying technology will still do the same thing:"}, {"text":"<strong>Make statistical predictions about what text should come next.</strong>"}],
-      "buttons":[{"text": "Next", "trigger":"finetuning-step-4","class":["stage-btn"]}]
+      "trigger": "finetuning-step-3",
+      "body": [
+        {
+          "text": "In this final step, you can craft your chatbot's \"personality,\" as in decide how it responds to questions. It can sound more like how your friend writes, or your teacher, or your boss. But remember, the underlying technology will still do the same thing:"
+        },
+        {
+          "text": "<strong>Make statistical predictions about what text should come next.</strong>"
+        }
+      ],
+      "buttons": [
+        {
+          "text": "Next",
+          "trigger": "finetuning-step-4",
+          "class": ["stage-btn"]
+        }
+      ]
     },
     {
-  "trigger": "finetuning-step-4",
-  "order": ["custom"],
-  "sliderLabels": ["Random", "Friendly", "Wordy"],
-  "generateButtonText": "Generate Text",
-  "nextButton":[{"text":"Next", "trigger":"stage-3-loader", "class":["stage-btn"]}]
-
-},
-{
-  "trigger":"stage-3-loader",
-  "body":[{"text":"Stage 3: Try it out!"}],
-  "timer":{"duration":2000, "trigger":"stage-3A-chatbot"}
-
-},
-{
-  "trigger": "stage-3A-chatbot",
-  "order":["custom"],
-  "chatbotIntro":{
-    "text": "Hey there! 👋 Pick a question and get started.",
-    "animation": "typewriter",
-    "speed": 40
-  },
-  "chatbotQuestions":[
-    {"question": "Is this a sample question?", "answer": "I was trained on lots of data to predict what words come next."},
-    {"question":"It is indeed?", "answer":"I really do recognize text patterns."},
-    {"question":"and this too?", "answer":"I guess it might be!"}
-  ],
-  "nextButton":[{"text":"Next", "trigger":"stage-3B", "class":["stage-btn"]}]
-}
-
+      "trigger": "finetuning-step-4",
+      "order": ["custom"],
+      "sliderLabels": ["Random", "Friendly", "Wordy"],
+      "generateButtonText": "Generate Text",
+      "nextButton": [
+        { "text": "Next", "trigger": "stage-3-loader", "class": ["stage-btn"] }
+      ]
+    },
+    {
+      "trigger": "stage-3-loader",
+      "body": [{ "text": "Stage 3: Try it out!" }],
+      "timer": { "duration": 2000, "trigger": "stage-3A-chatbot" }
+    },
+    {
+      "trigger": "stage-3A-chatbot",
+      "order": ["custom"],
+      "chatbotIntro": {
+        "text": "Hey there! 👋 Pick a question and get started.",
+        "animation": "typewriter",
+        "speed": 40
+      },
+      "chatbotQuestions": [
+        {
+          "question": "Is this a sample question?",
+          "answer": "I was trained on lots of data to predict what words come next."
+        },
+        {
+          "question": "It is indeed?",
+          "answer": "I really do recognize text patterns."
+        },
+        { "question": "and this too?", "answer": "I guess it might be!" }
+      ],
+      "nextButton": [
+        { "text": "Next", "trigger": "stage-3B", "class": ["stage-btn"] }
+      ]
+    }
   ]
 }
-
-

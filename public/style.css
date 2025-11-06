@@ -234,8 +234,11 @@ button {
     flex-direction: row;
     align-items: center;
     justify-content: center;
+   
   
 }
+
+
 
 .interactive-body{
     background-color: rgba(237, 236, 236, 0.702);
@@ -346,6 +349,9 @@ button {
   border-width: 2px;
   background-color: lightgrey;
   color: black;
+  margin: 0.5rem; 
+  padding: 0.6rem 0.6rem;
+
 }
 
 .button-choice:hover {
@@ -358,6 +364,10 @@ button {
   color: white;
 }
 
+.button-choice.selected {
+  background-color: lightgreen;
+  border-color: green;
+}
 
 #likelihood-container {
   display: flex;
