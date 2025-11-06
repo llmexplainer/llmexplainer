@@ -1,5 +1,4 @@
 
-
 {
   "comments": {"what's going on": "honestly idk, but think of all the elements having a bunch of values corresponding to each key which specificy the content, additional classes, potential delay, and so on.",
 "note":"pay attention to how classes are added, some are in arrays for example."},

@@ -2,7 +2,7 @@ let DATA_TYPES = null;
 let FEEDBACK_QUESTIONS = null; 
 
 async function loadDataContent(){
-    const response = await fetch ("json/dataContent.json");
+    const response = await fetch ("public/json/dataContent.json");
     const data = await response.json(); 
     DATA_TYPES = data.DATA_TYPES;
     FEEDBACK_QUESTIONS = data.FEEDBACK_QUESTIONS;
@@ -16,7 +16,7 @@ function getPersonalityKey(randomness,friendliness,wordiness){
     const f = friendliness > 50?  'h':'l';
     const w = wordiness > 50? 'h':'l';
 
-    return(`${r}-${f}-${w}`)
+    return `${r}-${f}-${w}`;
 }
 
 function getPersonalityText(dataType, randomness, friendliness, wordiness){

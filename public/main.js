@@ -41,7 +41,7 @@ const STAGE_INFO = {
 async function loadScript() {
   await loadDataContent();
   try {
-    const response = await fetch("json/script.json");
+    const response = await fetch("public/json/script.json");
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     const jsonData = await response.json();
     //entire script raw json
