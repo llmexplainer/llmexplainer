@@ -8,6 +8,11 @@ let scriptByIndex = {};
 let scriptByTrigger = {};
 let UIData = {};
 let userDataSelection = null;
+let userPersonality = {     // default
+  randomness: 50,
+  friendliness: 50,
+  wordiness: 50
+};
 
 const customRenderers = {
   // "stage-1": nextButtonForDataSelection
@@ -305,15 +310,14 @@ function handleTrigger(trigger, extraData = null) {
   }
   //to save training selection
   if (trigger === "choice-data" && extraData) {
-    if (extraData === "Data Type 1" || "Data Type 3"){
-      userDataSelection = 0; //SO DT1 = EBSCO AND DT3 = JSTOR
-    } else if (extraData === "Data Type 2" || "Data Type 4"){
-      userDataSelection = 1; //SO DT2 = REDDIT AND DT4 = TUMBLR
-    }
-
-    console.log("User selected data type:", userDataSelection);
-    console.log(DATA_TYPES[userDataSelection].name);
+  if (extraData === "Data Type 1" || extraData === "Data Type 3"){
+    userDataSelection = 0;
+  } else if (extraData === "Data Type 2" || extraData === "Data Type 4"){
+    userDataSelection = 1;
   }
+  console.log("User selected data type:", userDataSelection);
+  console.log(DATA_TYPES[userDataSelection].name);
+}
 
   renderStep(step);
 }
@@ -486,7 +490,7 @@ function renderFineTuningStep4(step){
 
   sliders.forEach((slider,i) => {
     const fill = slider.querySelector(".slider-fill");
-    const currentValue = fill.querySelector(".slider-value");
+    // const currentValue = fill.querySelector(".slider-value");
 
     let isDragging = false; 
 
@@ -497,7 +501,7 @@ function renderFineTuningStep4(step){
       let percent = ((x-rect.left) / rect.width) *100; 
       percent = Math.max(0, Math.min(100, percent));
       fill.style.width = `${percent}%`; 
-      currentValue.textContent = `${Math.round(percent)}%`; 
+      // currentValue.textContent = `${Math.round(percent)}%`; 
       sliderValues[`slider${i+1}`] = Math.round(percent); 
       console.log(sliderValues);
     }; 
@@ -535,7 +539,13 @@ function renderFineTuningStep4(step){
     const s2 = sliderValues.slider2 ?? 50;
     const s3 = sliderValues.slider3 ?? 50; 
 
-    const generatedText = `Your model sounds ${s1}% random, and ${s2}% friendly and ${s3}% wordy`;
+    userPersonality = {
+      randomness: s1,
+      friendliness: s2,
+      wordiness: s3
+    }
+
+    const generatedText = getPersonalityText(userDataSelection, s1,s2,s3);
     outputContainer.classList.add("visible");
     output.textContent = generatedText; 
     
