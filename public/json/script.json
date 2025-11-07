@@ -226,28 +226,28 @@
       ],
       "buttons": [
         {
-          "text": "Data Type 1",
+          "text": "Academic journals",
           "trigger": "choice-data",
           "class": ["button-choice"],
           "dataValue": 0,
           "delay": "1.0s"
         },
         {
-          "text": "Data Type 2",
+          "text": "News articles",
           "trigger": "choice-data",
           "class": ["button-choice"],
           "dataValue": 0,
           "delay": "1.0s"
         },
         {
-          "text": "Data Type 3",
+          "text": "Reddit posts",
           "trigger": "choice-data",
           "class": ["button-choice"],
           "dataValue": 1,
           "delay": "1.0s"
         },
         {
-          "text": "Data Type 4",
+          "text": "Twitter feeds",
           "trigger": "choice-data",
           "class": ["button-choice"],
           "dataValue": 1,
@@ -295,7 +295,7 @@
     },
     {
       "trigger": "data-prob",
-      "body": [{ "text": "Are we showing data or smth here? Confused" }],
+      "body": [{ "text": "This process is environmentally costly, using up large amounts of water and energy." }],
       "timer": { "duration": 2000, "trigger": "training-step-1" }
     },
     {
