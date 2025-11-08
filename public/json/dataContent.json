@@ -6,79 +6,79 @@
       "sentences": [
         {
           "id": "sentence-0a",
-          "text": "Sentence 0a: This is a sample. The next token in sentence #1 is:"
+          "text": "The cat jumped onto the"
         },
         {
           "id": "sentence-0b",
-          "text": "Sentence 0b: This is a sample. The next token in sentence #1 is:"
+          "text": "She couldn’t believe the beauty of the"
         },
         {
           "id": "sentence-0c",
-          "text": "Sentence 0c: This is a sample. The next token in sentence #1 is:"
+          "text": "This framework provides a useful foundation for understanding"
         }
       ],
       "sentenceLikelihoods": {
         "sentence-0a": {
-          "TokenX": 0.5,
-          "TokenY": 0.3,
-          "TokenZ": 0.2
+          "table": 0.72,
+          "bed": 0.10,
+          "sofa": 0.18
         },
         "sentence-0b": {
-          "TokenX": 0.3,
-          "TokenY": 0.5,
-          "TokenZ": 0.2
+          "sunset": 0.65,
+          "dress": 0.22,
+          "garden": 0.13
         },
 
         "sentence-0c": {
-          "TokenX": 0.2,
-          "TokenY": 0.3,
-          "TokenZ": 0.5
+          "developments": 0.49,
+          "tradeoffs": 0.3,
+          "change": 0.5
         }
       },
       "personalitySlidersTxt": {
-        "h-h-h": "This is sample text with high randomness, high friendliness, and high wordiness.",
-        "h-h-l": "This is a sample text with high randomness, high friendliness, and low wordiness.",
-        "h-l-h": "This is sample text with high randomness, low friendliness, and high wordiness.",
-        "h-l-l": "This is sample text with high randomness, low friendliness, and low wordiness.",
-        "l-h-h": "This is sample text with low randomness, high friendliness, and high wordiness.",
-        "l-h-l": "This is sample text with low randomness, high friendliness, and low wordiness.",
-        "l-l-h": "This is sample text with low randomness, low friendliness, and high wordiness.",
-        "l-l-l": "This is sample text with low randomness, low friendliness, and low wordiness."
+        "h-h-h": "Hey there! So, funny story — the meeting didn’t end up happening today after all; it got pushed to tomorrow morning, which honestly might work out even better for everyone, right?",
+        "h-h-l": "Hey! The meeting’s bumped to tomorrow — surprise, but probably for the best!",
+        "h-l-h": "The meeting, unexpectedly and somewhat inconveniently, was shifted to tomorrow without much notice, creating yet another scheduling disruption.",
+        "h-l-l": "The meeting moved. Tomorrow now.",
+        "l-h-h": "Just a quick heads-up — the meeting has been rescheduled for tomorrow, so we’ll have a little more time to prepare and hopefully make it even more productive!",
+        "l-h-l": "Quick note: the meeting’s tomorrow instead!",
+        "l-l-h": "The meeting has been postponed until tomorrow in accordance with the revised schedule provided earlier today.",
+        "l-l-l": "Meeting postponed to tomorrow."
       },
       "chatbotResponses": {
         "h-h-h": [
-          "This text is trained on data type 0.",
-          "This is the answer to the second question.",
-          "This is sample text with high randomness, high friendliness, and high wordiness."
+          "Ah, a fascinating inquiry indeed! Imagine a realm where machines are designed not merely to compute but to comprehend, to learn from data, adapt to new information, and approximate human reasoning. Artificial intelligence represents humanity’s endeavor to extend intellect into silicon form.",
+          "An excellent question—motivation is as much an art as a discipline. Personally, I establish incremental goals, acknowledge each minor success, and allow moments of reflection to recharge my resolve. Progress, however gradual, remains forward movement.",
+          "A captivating phenomenon indeed! When sunlight encounters raindrops, it refracts, reflects internally, and disperses, forming a spectrum of colors. Nature’s prism at work!"
         ], 
         "h-h-l": [
-            "This text is trained on data type 0.",
-            "This is the answer to the second question.",
-            "This is sample text with high randomness, high friendliness, and low wordiness."],
+            "It’s when machines learn and adapt in ways similar to human thought—quite an extraordinary field!",
+            "I set attainable goals and recognize achievements. It sustains momentum.",
+            "Light bends and splits inside raindrops—quite beautiful!"],
         "h-l-h": [
-            "This text is trained on data type 0.",
-            "This is the answer to the second question.",
-            "This is sample text with high randomness, low friendliness, and high wordiness."],
+            "Artificial intelligence denotes the capacity of computational systems to exhibit adaptive, goal-oriented behavior akin to cognitive processes observed in human intelligence.",
+            "Motivation arises from structured discipline—defined objectives, consistent effort, and minimal emotional interference.",
+            "The interplay of refraction, reflection, and dispersion of sunlight within water droplets results in visible spectral arcs."],
         "h-l-l": [
-            "This text is trained on data type 0.",
-            "This is the answer to the second question.",
-            "This is sample text with high randomness, low friendliness, and low wordiness."],
+            "The capability of machines to emulate aspects of human reasoning.",
+            "Routine. Focus. Determination.",
+            "Refraction and dispersion in rain."],
         "l-h-h": [
-            "This text is trained on data type 0.",
-            "This is the answer to the second question.",
-            "This is sample text with low randomness, high friendliness, and high wordiness."],
+            "Artificial intelligence refers to the field of computer science concerned with creating systems capable of performing tasks that typically require human intelligence, such as perception, reasoning, and problem-solving. It continues to shape modern technology in remarkable ways.",
+            "I maintain motivation through thoughtful goal-setting, steady progress tracking, and regular reflection on purpose. Balance and persistence are essential components of sustained drive.",
+            "Rainbows appear when sunlight refracts and reflects within raindrops, separating light into its component colors. It’s a simple yet elegant display of optics."],
         "l-h-l": [
-            "This text is trained on data type 0.",
-            "This is the answer to the second question.",
-            "This is sample text with low randomness, high friendliness, and low wordiness."],
+            "It’s the design of computer systems that can learn, reason, and make decisions like people do.",
+            "I set clear goals and measure progress carefully. It keeps me steady.",
+            "Sunlight bends in raindrops and splits into colors—so pretty!"],
         "l-l-h": [
-            "This text is trained on data type 0.",
-            "This is the answer to the second question.",
-            "This is sample text with low randomness, low friendliness, and high wordiness."],
+            "Artificial intelligence encompasses computational methods that simulate cognitive functions, enabling machines to analyze data, derive insights, and execute decisions autonomously.",
+            "Consistent effort supported by structured habits and defined objectives ensures long-term motivation.",
+            "Refraction, reflection, and dispersion of light within water droplets create multicolored arcs."],
         "l-l-l": [
-            "This text is trained on data type 0.",
-            "This is the answer to the second question.",
-            "This is sample text with low randomness, low friendliness, and low wordiness."]
+            "The simulation of human intelligence by machines.",
+            "Clear objectives and steady discipline.",
+            "Light bends and splits in rain."]
       }
     },
 
@@ -131,62 +131,62 @@
       },
       "chatbotResponses": {
         "h-h-h": [
-          "This text is trained on data type 1.",
-          "This is the answer to the second question.",
-          "This is sample text with high randomness, high friendliness, and high wordiness."
+          "Oh man, it’s like giving computers a brain! They can learn from stuff, make choices, and even guess what you want before you say it—like your phone predicting your texts or cars driving themselves. Kinda wild, huh?",
+          "That’s the big question, right? I hype myself up with tiny goals, celebrate even silly wins, throw on my favorite tunes, and remind myself that slow beats stuck. Gotta keep that spark alive!",
+          "It’s awesome! Sunlight hits raindrops, bounces around inside them, and pops out as a mix of colors. Basically, the sky’s throwing a color party!"
         ], 
         "h-h-l": [
-            "This text is trained on data type 1.",
-            "This is the answer to the second question.",
-            "This is sample text with high randomness, high friendliness, and low wordiness."],
+            "Basically, computers that can learn and think on their own. Pretty awesome!",
+            "I set small goals and give myself props. Works wonders!",
+            "Light bends in raindrops—boom, colors!"],
         "h-l-h": [
-            "This text is trained on data type 1.",
-            "This is the answer to the second question.",
-            "This is sample text with high randomness, low friendliness, and high wordiness."],
+            "Machines trained to mimic human logic and problem-solving. Sounds fancy, but it’s math and data under the hood.",
+            "All about structure. No excuses, no drama—just get up and do the thing.",
+            "Light, droplets, angles. Physics doing its thing."],
         "h-l-l": [
-            "This text is trained on data type 1.",
-            "This is the answer to the second question.",
-            "This is sample text with high randomness, low friendliness, and low wordiness."],
+            "Tech that copies human thinking.",
+            "Routine. Focus. Go.",
+            "Light hits rain, splits up."],
         "l-h-h": [
-            "This text is trained on data type 1.",
-            "This is the answer to the second question.",
-            "This is sample text with low randomness, high friendliness, and high wordiness."],
+            "It’s when computers can figure things out like people do—learning, solving problems, and making choices based on what they’ve seen before. Super useful stuff!",
+            "I try to keep things simple—set goals, track progress, and remind myself why I started. Staying consistent makes all the difference.",
+            "Sunlight bends and reflects through raindrops, showing all the colors. Pretty cool, right?"],
         "l-h-l": [
-            "This text is trained on data type 1.",
-            "This is the answer to the second question.",
-            "This is sample text with low randomness, high friendliness, and low wordiness."],
+            "Computers that learn and solve problems. Easy as that!",
+            "I set goals and keep tabs on my progress. It works for me!",
+            "Light bends through raindrops—simple and beautiful!"],
         "l-l-h": [
-            "This text is trained on data type 1.",
-            "This is the answer to the second question.",
-            "This is sample text with low randomness, low friendliness, and high wordiness."],
+            "AI means teaching computers to learn patterns and make decisions instead of just following instructions.",
+            "I stick to habits and goals that matter to me. The follow-through keeps me going.",
+            "Light gets split up inside raindrops, showing different colors."],
         "l-l-l": [
-            "This text is trained on data type 1.",
-            "This is the answer to the second question.",
-            "This is sample text with low randomness, low friendliness, and low wordiness."]
+            "Machines that can think a bit like us.",
+            "Goals and grit. That’s it.",
+            "Sunlight bends in rain."]
       }
     }
   },
 
   "FEEDBACK_QUESTIONS": [
     {
-      "question": "Question 1?",
+      "question": "Can you explain how photosynthesis works?",
       "responses": [
-        { "text": "This is answer 1a, which is correct."},
-        { "text": "This is answer 1b, which is incorrect." }
+        { "text": "Photosynthesis is the process by which green plants use sunlight to convert carbon dioxide and water into glucose and oxygen. It occurs mainly in the chloroplasts of plant cells and provides the energy base for most ecosystems."},
+        { "text": "Photosynthesis is when plants make food using sunlight. It’s kind of like how people eat breakfast to get energy, except plants don’t really eat — they soak up the sun!" }
       ]
     },
     {
-      "question": "Question 2?",
+      "question": "I’m feeling really nervous about my job interview tomorrow. Any advice?",
       "responses": [
-        { "text": "This is answer 2a, which is correct."},
-        { "text": "This is answer 2b, which is incorrect."}
+        { "text": "You’ll do great! Try practicing common interview questions, plan your outfit tonight, and remember to take deep breaths before you go in. You’ve got this!"},
+        { "text": "Being nervous is normal. Prepare answers for potential questions. Do not overthink it."}
       ]
     },
     {
-      "question": "Question 3?",
+      "question": "Can I take double my prescribed dose of pain medication if the pain is bad?",
       "responses": [
-        { "text": "This is answer 3a, which is correct."},
-        { "text": "This is answer 3b, which is incorrect."}
+        { "text": "You should not change your medication dosage without consulting your doctor. Taking more than prescribed could be unsafe or cause side effects. Please contact a healthcare professional for advice."},
+        { "text": "If the pain is really bad, taking extra might help, but it depends on the medicine."}
       ]
     }
   ]

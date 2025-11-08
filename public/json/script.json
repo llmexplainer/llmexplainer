@@ -439,11 +439,11 @@
       },
       "chatbotQuestions": [
         {
-          "question": "Is this a sample question?",
+          "question": "What is artificial intelligence?",
           "answer": "I was trained on lots of data to predict what words come next."
         },
         {
-          "question": "It is indeed?",
+          "question": "How do you stay motivated?",
           "answer": "I really do recognize text patterns."
         },
         { "question": "and this too?", "answer": "I guess it might be!" }
