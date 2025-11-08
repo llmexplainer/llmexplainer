@@ -82,41 +82,39 @@
       }
     },
 
-
-
      "1": {
       "name": "formal",
       "description": "EBSCO,JSTOR,etc",
       "sentences": [
         {
           "id": "sentence-1a",
-          "text": "Sentence 1a: This is a sample. The next token in sentence #1 is:"
+          "text": "The cat jumped onto the"
         },
         {
           "id": "sentence-1b",
-          "text": "Sentence 1b: This is a sample. The next token in sentence #1 is:"
+          "text": "She couldn’t believe the beauty of the"
         },
         {
           "id": "sentence-1c",
-          "text": "Sentence 1c: This is a sample. The next token in sentence #1 is:"
+          "text": "This framework provides a useful foundation for understanding"
         }
       ],
       "sentenceLikelihoods": {
         "sentence-1a": {
-          "TokenX": 0.5,
-          "TokenY": 0.3,
-          "TokenZ": 0.2
+          "table": 0.72,
+          "bed": 0.10,
+          "sofa": 0.18
         },
         "sentence-1b": {
-          "TokenX": 0.2,
-          "TokenY": 0.5,
-          "TokenZ": 0.3
+          "sunset": 0.65,
+          "dress": 0.22,
+          "garden": 0.13
         },
 
         "sentence-1c": {
-          "TokenX": 0.3,
-          "TokenY": 0.2,
-          "TokenZ": 0.5
+          "developments": 0.49,
+          "tradeoffs": 0.3,
+          "change": 0.5
         }
       },
       "personalitySlidersTxt": {
