@@ -27,14 +27,14 @@ let currentProgress = 0;
 const PROGRESS_MILESTONES = {
   "stage-1": 0,
   "choice-data": 10,
-  "training-step-1": 20,
-  "finetuning-step-1": 40,
+  "training-step-1": 30,
+  "finetuning-step-1": 80,
   //add and edit as we go
 };
 
 const STAGE_INFO = {
   "stage-1": { name: "Training", color: "#c9fdc4ff" },
-  "finetuning-loader": { name: "Fine-tuning", color: "#d1d7faff" },
+  "finetuning-loader": { name: "Post-training", color: "#d1d7faff" },
   "stage-3A-chatbot": { name: "Deployment", color: "#fedaa0ff" },
 };
 

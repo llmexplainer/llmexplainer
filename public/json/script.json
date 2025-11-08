@@ -221,7 +221,7 @@
           "text": "The first thing you’ll need to build a language model is training data, or large bodies of text that a language model looks for patterns in, and produces text based on. The larger the data, the more complex the model's ability to produce appropriate text: that's the large in large language model (LLM)."
         },
         {
-          "text": "The internet provides a large source of text data, like social media sites, blogs, digital books, or research papers. Select your model's training data below:"
+          "text": "The internet provides a large source of text data, like social media sites, blogs, digital books, or research papers. Select your model's primary training data below:"
         }
       ],
       "buttons": [
@@ -303,9 +303,9 @@
       "order": ["body", "custom", "buttons"],
       "body": [
         {
-          "text": "Based on your data, the model can estimate the probability of a character, word, or sequence of words occurring in text, based on how commonly it occurred in [data source], and generates new text accordingly. \nPick a sentence, and see what word is most likely to come next."
+          "text": "Based on your data, the model can estimate the probability of a character, word, or sequence of words occurring in text, based on how commonly it occurred in your data source, and generates new text accordingly."
         },
-        { "text": "Select a sentence to complete:" }
+        { "text": "Pick a sentence, and see what word is most likely to come next:" }
       ],
       "buttons": [
         {
@@ -336,12 +336,12 @@
           "text": "Based on what question typically occurs next in empty forms online, it may respond with: <span class='text-red'>What is your last name?</span>"
         },
         {
-          "text": "This is where finetuning comes in, to turn the model from sounding like a random text generator to a realistic assistant."
+          "text": "This is where post-training and fine-tuning comes in, to turn the model from sounding like a random text generator to a realistic assistant."
         }
       ],
       "buttons": [
         {
-          "text": "STAGE 2: Fine tuning",
+          "text": "STAGE 2: Post-training",
           "trigger": "finetuning-loader",
           "class": ["stage-btn"]
         }
