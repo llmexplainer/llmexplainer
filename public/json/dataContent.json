@@ -118,14 +118,14 @@
         }
       },
       "personalitySlidersTxt": {
-        "h-h-h": "This is sample text with high randomness, high friendliness, and high wordiness.",
-        "h-h-l": "This is a sample text with high randomness, high friendliness, and low wordiness.",
-        "h-l-h": "This is sample text with high randomness, low friendliness, and high wordiness.",
-        "h-l-l": "This is sample text with high randomness, low friendliness, and low wordiness.",
-        "l-h-h": "This is sample text with low randomness, high friendliness, and high wordiness.",
-        "l-h-l": "This is sample text with low randomness, high friendliness, and low wordiness.",
-        "l-l-h": "This is sample text with low randomness, low friendliness, and high wordiness.",
-        "l-l-l": "This is sample text with low randomness, low friendliness, and low wordiness."
+        "h-h-h": "Hey there! So, funny story — the meeting didn’t end up happening today after all; it got pushed to tomorrow morning, which honestly might work out even better for everyone, right?",
+        "h-h-l": "Hey! The meeting’s bumped to tomorrow — surprise, but probably for the best!",
+        "h-l-h": "The meeting, unexpectedly and somewhat inconveniently, was shifted to tomorrow without much notice, creating yet another scheduling disruption.",
+        "h-l-l": "The meeting moved. Tomorrow now.",
+        "l-h-h": "Just a quick heads-up — the meeting has been rescheduled for tomorrow, so we’ll have a little more time to prepare and hopefully make it even more productive!",
+        "l-h-l": "Quick note: the meeting’s tomorrow instead!",
+        "l-l-h": "The meeting has been postponed until tomorrow in accordance with the revised schedule provided earlier today.",
+        "l-l-l": "Meeting postponed to tomorrow."
       },
       "chatbotResponses": {
         "h-h-h": [
