@@ -28,7 +28,8 @@ const PROGRESS_MILESTONES = {
   "stage-1": 0,
   "choice-data": 10,
   "training-step-1": 30,
-  "finetuning-step-1": 80,
+  "finetuning-step-1": 60,
+  "finetuning-step-3": 90,
   //add and edit as we go
 };
 
