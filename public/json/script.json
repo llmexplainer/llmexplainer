@@ -8,7 +8,7 @@
     "_comment": "to separate static elements from script",
 
     "navbar": {
-      "title": "LLM Explainer",
+      "title": "How to Train Your Chatbot",
       "resources": "Resources",
       "about": "About",
       "language": "EN"
