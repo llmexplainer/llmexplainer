@@ -446,7 +446,7 @@
           "question": "How do you stay motivated?",
           "answer": "I really do recognize text patterns."
         },
-        { "question": "and this too?", "answer": "I guess it might be!" }
+        { "question": "What causes rainbows?", "answer": "I guess it might be!" }
       ],
       "nextButton": [
         { "text": "Next", "trigger": "stage-3B", "class": ["stage-btn"] }
